@@ -21,7 +21,6 @@
   const spreadIndicator = document.getElementById('spread-indicator');
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
-  const selectSpread = document.getElementById('select-spread');
   const btnBleeds = document.getElementById('btn-bleeds');
   const btnReview = document.getElementById('btn-review');
   const btnDropPin = document.getElementById('btn-drop-pin');
@@ -98,17 +97,14 @@
 
     let pageLabel = '';
     if (leftPage && rightPage) {
-      pageLabel = `Pages ${leftPage}–${rightPage} of 17`;
+      pageLabel = `Pages ${leftPage}–${rightPage}`;
     } else if (leftPage) {
-      pageLabel = `Page ${leftPage} of 17`;
+      pageLabel = `Page ${leftPage}`;
     } else if (rightPage) {
-      pageLabel = `Page ${rightPage} of 17`;
+      pageLabel = `Page ${rightPage}`;
     }
 
     spreadIndicator.innerHTML = `<strong>${spreadName}</strong><br><span style="font-size:10px; color:#8B949E;">${pageLabel}</span>`;
-    if (selectSpread) {
-      selectSpread.value = currentSpreadIndex;
-    }
 
     btnPrev.disabled = currentSpreadIndex === 0;
     btnNext.disabled = currentSpreadIndex === totalSpreads - 1;
@@ -137,12 +133,26 @@
       }
     });
 
-    selectSpread?.addEventListener('change', (e) => {
-      const idx = parseInt(e.target.value, 10);
-      if (!isNaN(idx)) {
-        showSpread(idx);
+    // Mouse Wheel Scroll to Navigate Spreads
+    let isWheelNavigating = false;
+    window.addEventListener('wheel', (e) => {
+      if (e.target.closest('#comments-drawer') || e.target.closest('#pin-modal')) {
+        return;
       }
-    });
+      if (Math.abs(e.deltaY) < 25) return;
+
+      if (!isWheelNavigating) {
+        isWheelNavigating = true;
+        if (e.deltaY > 0) {
+          showSpread(currentSpreadIndex + 1);
+        } else {
+          showSpread(currentSpreadIndex - 1);
+        }
+        setTimeout(() => {
+          isWheelNavigating = false;
+        }, 450);
+      }
+    }, { passive: true });
 
     // Bleed / Print Marks Toggle
     btnBleeds?.addEventListener('click', toggleBleeds);

@@ -1,122 +1,90 @@
 # VIOPATCH — Brand Book Architecture & Spread Specification
 **Target Audience:** Arti Gill · Giga Capital  
 **Format:** 16:9 Widescreen Presentation & 2-Page Facing Spread Layout  
-**Slide Master Dimensions:** $960\text{ pt} \times 540\text{ pt}$ ($13.333" \times 7.5"$) / $1280 \times 720\text{ px}$  
+**Slide Master Dimensions:** $960\text{ pt} \times 540\text{ pt}$ ($13.333" \times 7.5"$) / $1920 \times 540\text{ px}$ spread  
 **Color Standard:** Ratified 2026 Brand Design System (`BRAND_STYLE_GUIDE.md` Version 2.0)  
-**Primary Blue:** Viopatch Cool Blue (`#0054A6`) Solid (Strictly zero gradients on cover/corporate slides)  
-**Classification:** STRICTLY CONFIDENTIAL — Strategic Acquisition & Brand Incubation Monograph  
+**Primary Blue:** Viopatch Cool Blue (`#0054A6`) Solid (Zero gradients on cover/corporate slides)  
+**Classification:** Brand Incubation & Acquisition Monograph  
 
 ---
 
-## 2-Page Facing Spread Matrix (17 Pages / 9 Spreads)
+## 2-Page Facing Spread Matrix (16 Pages / 9 Spreads)
 
 ```
-[ SPREAD 0 ]  Page 1: Front Cover (Right / Solo)
-[ SPREAD 1 ]  Page 2: Inside Front Cover (BLANK)     │ Page 3: Category White Space & Moats
-[ SPREAD 2 ]  Page 4: Knee Patch Description         │ Page 5: Sample 1: Knee Patch Mount
-[ SPREAD 3 ]  Page 6: Back XL Description            │ Page 7: Sample 2: Back XL Mount
-[ SPREAD 4 ]  Page 8: Regular Multipurpose Desc.     │ Page 9: Sample 3: Regular Mount
-[ SPREAD 5 ]  Page 10: Large Patch Description       │ Page 11: Sample 4: Large Patch Mount
-[ SPREAD 6 ]  Page 12: Period Pain Patch Desc.       │ Page 13: Sample 5: Period Pain Mount
-[ SPREAD 7 ]  Page 14: Incubation Thesis             │ Page 15: Acquisition & CDMO Structure
-[ SPREAD 8 ]  Page 16: Regulatory Governance         │ Page 17: Back Cover (Solid Cool Blue)
+[ SPREAD 0 ]  Page 0: Front Cover (Single Slide Centered)
+[ SPREAD 1 ]  Page 1: Inside Front Cover (BLANK)     │ Page 2: Macro Market Thesis & Blog Landscape
+[ SPREAD 2 ]  Page 3: Product 1 / 5 Knee Patch       │ Page 4: Sample 1: Knee Patch Mount (120x120 mm)
+[ SPREAD 3 ]  Page 5: Product 2 / 5 Back XL Patch    │ Page 6: Sample 2: Back XL Mount (140x100 mm)
+[ SPREAD 4 ]  Page 7: Product 3 / 5 Regular Patch    │ Page 8: Sample 3: Regular Mount (100x70 mm)
+[ SPREAD 5 ]  Page 9: Product 4 / 5 Large Patch      │ Page 10: Sample 4: Large Mount (140x100 mm)
+[ SPREAD 6 ]  Page 11: Product 5 / 5 Period Pain Patch│ Page 12: Sample 5: Period Pain Mount (100x100 mm)
+[ SPREAD 7 ]  Page 13: Investment Thesis (Roorkee)   │ Page 14: The Ask (Carve-Out & Supply Agreement)
+[ SPREAD 8 ]  Page 15: Back Cover (Single Slide Centered)
 ```
 
 ---
 
 ### Detailed Page Breakdown
 
-#### Spread 0: Front Cover (Page 1)
+#### Spread 0: Front Cover (Page 0)
 - **Background:** Solid Viopatch Cool Blue (`#0054A6`). Zero gradients, zero decorative radar/target icons.
-- **Wordmark:** Dual-color master wordmark (`VIO` in `#FDCD8B` Dermal Yellow, `PATCH` in Pure White `#FFFFFF`, cap-height registered trademark `®`).
-- **Aspect Ratio:** Locked 3.7:1 geometry with strict 1X clear space.
-- **Eyebrow:** CONFIDENTIAL
-- **Title:** India's First Herbal Pain-Relief Patch Brand
-- **Recipient:** Prepared for Giga Capital
-- **Footer:** Confidential | © Unexo Life Sciences Private Limited
+- **Slide Master Format:** Master wordmark (`VIO` in `#FDCD8B`, `PATCH` in `#FFFFFF` with `®`) on top right.
+- **Document Title:** BRAND BOOK &middot; 11 September 2026.
+- **Headline:** India's First Herbal Pain-Relief Patch Brand.
+- **Recipient:** Prepared for Giga Capital.
+- **Footer:** `&copy; Unexo Life Sciences Private Limited` | Slide `00`.
 
 ---
 
-#### Spread 1: Blank Inside Cover (Page 2) & Market Thesis (Page 3)
-- **Left Page (Page 2): Blank Inside Front Cover**
-  - Clean Viopatch Hospital Calm Grey (`#F2F2F7`).
-  - Subtle centered watermark wordmark with caption: *"Inside Front Cover · Intentionally Left Blank"*.
-- **Right Page (Page 3): Category White Space & Category Definition**
+#### Spread 1: Blank Inside Cover (Page 1) & Market Thesis (Page 2)
+- **Left Page (Page 1): Blank Inside Front Cover**
+  - Viopatch Hospital Calm Grey (`#F2F2F7`).
+  - Text: *"Page intentionally left blank"*.
+  - Footer: `&copy; Unexo Life Sciences Private Limited` | Slide `01`.
+- **Right Page (Page 2): Macro Market Thesis & Competitive Landscape**
   - *Headline:* Pain relief patches are the most under-built brand category in Indian consumer health.
-  - *Market Data:* $3.5Bn total India pain market (60% oral NSAID pills); $50Mn+ fast-growing patch segment; high-margin, low organized competition.
-  - *The White Space:* Indians are wary of systemic NSAID pill damage (gastric ulcers) and distrust sticky, smelly balms. Patches deliver 100% first-pass GI bypass with 12 hours of zero-order sustained delivery.
-  - *Category Definition:* India's 1st herbal patch, clinically proven pain onset at ~13 minutes, AYUSH Premium Mark, ANVISA approved for Brazil, 18 export countries, multi-SKU platform.
+  - *Subtitle:* Softened messaging focusing on balm greasiness, clothing stains, and gastric NSAID ulcer concerns.
+  - *Substack Blog Charts:*
+    1. **$3.5 Bn Market Channel Breakdown:** ~60% oral pills, patches at $50M+ emerging whitespace.
+    2. **Competitive Landscape:** Mature US/Japan markets vs nascent India landscape.
+  - Footer: `&copy; Unexo Life Sciences Private Limited` | Slide `02`.
 
 ---
 
 #### Spreads 2–6: Dedicated Product Spreads (Left = Description, Right = Sample Mount)
-
-##### Spread 2 (Pages 4 & 5): Knee Pain Relief Patch
-- **Left Page (Page 4): SKU Description Page**
-  - Ergonomic butterfly contour for 360° articulating knee joints without bunching.
-  - High-resolution packaging creative (`assets/product-knee.jpg`).
-  - Gandhpura Taila 10%, Menthol 5%, Camphor 3%, Eucalyptus 1%, Clove Oil 0.5%.
-  - 12-Hour sustained joint flux; sweat-resistant tropical adhesion.
-- **Right Page (Page 5): Sample Attachment Page**
-  - Dashed mounting frame: $120 \times 120\text{ mm}$ with corner registration brackets ($L$-marks) and optical crosshair.
-  - 2 × Removable fugitive glue-dot placement targets.
-  - Directional instruction: *"Touch the breathable micro-weave fabric. Feel the absence of greasy residue and test the butterfly joint contour."*
-
-##### Spread 3 (Pages 6 & 7): Back XL Pain Relief Patch
-- **Left Page (Page 6): SKU Description Page**
-  - Largest transdermal patch in India ($140 \times 100\text{ mm}$) covering the full lumbar spine and sacroiliac junction.
-  - Packaging creative (`assets/product-back-xl.jpg`).
-  - Restores deep sleep by eliminating midnight 3:00 AM throbbing pain wake-ups without oral sedatives.
-- **Right Page (Page 7): Sample Attachment Page**
-  - Dashed mounting frame: $140 \times 100\text{ mm}$.
-  - 2 × Removable glue-dot targets.
-
-##### Spread 4 (Pages 8 & 9): Regular Multipurpose Patch
-- **Left Page (Page 8): SKU Description Page**
-  - The high-frequency medicine cabinet hero for neck, shoulder, wrist, and ankle pain.
-  - Packaging creative (`assets/product-regular.jpg`).
-  - Discreet flesh-tone fabric invisible beneath formal shirts. Economy 10 & 30 packs driving high LTV.
-- **Right Page (Page 9): Sample Attachment Page**
-  - Dashed mounting frame: $100 \times 70\text{ mm}$.
-  - Glue-dot placement targets.
-
-##### Spread 5 (Pages 10 & 11): Large Pain Relief Patch
-- **Left Page (Page 10): SKU Description Page**
-  - Broad muscular relief for hamstrings, quadriceps, lats, and trapezius.
-  - Packaging creative (`assets/product-large.jpg`).
-  - Athletic recovery, delayed-onset muscle soreness (DOMS) reduction, active movement stretch adhesion.
-- **Right Page (Page 11): Sample Attachment Page**
-  - Dashed mounting frame: $140 \times 100\text{ mm}$.
-  - Glue-dot placement targets.
-
-##### Spread 6 (Pages 12 & 13): Period Pain Relief Herbal Patch
-- **Left Page (Page 12): SKU Description Page**
-  - Discreet, drug-free 12-hour abdominal comfort for dysmenorrhea and pelvic uterine cramps.
-  - Packaging creative (`assets/product-period.jpg`).
-  - Non-hormonal botanical antispasmodic warmth; 28-day monthly recurring subscription metrics.
-- **Right Page (Page 13): Sample Attachment Page**
-  - Dashed mounting frame: $100 \times 100\text{ mm}$.
-  - Glue-dot placement targets.
+- **Left Page (Odd 3, 5, 7, 9, 11): SKU Story**
+  - Category Pills: `PRODUCT 1 / 5` to `PRODUCT 5 / 5`.
+  - Clinical indication, active botanical matrix, and zero-GI-erosion highlights.
+- **Right Page (Even 4, 6, 8, 10, 12): Standardized Sample Attachment Mount**
+  - Uniform die-line engineering box with corner registration brackets, crosshair, and peelable fugitive glue dot targets.
+  - Explicit millimeter sachet dimensions:
+    - Knee Patch: $120\text{ mm} \times 120\text{ mm}$
+    - Back XL: $140\text{ mm} \times 100\text{ mm}$
+    - Regular Patch: $100\text{ mm} \times 70\text{ mm}$
+    - Large Patch: $140\text{ mm} \times 100\text{ mm}$
+    - Period Pain: $100\text{ mm} \times 100\text{ mm}$
+  - Footer: Consistent `&copy; Unexo Life Sciences Private Limited` with slide numbers `04, 06, 08, 10, 12`.
 
 ---
 
-#### Spread 7 (Pages 14 & 15): Incubation Thesis & Transaction Architecture
-- **Left Page (Page 14): Why This Fits an Early-Stage Brand-Incubation Thesis**
-  1. *Hard parts already solved:* Formulations, clinical trials, stability tests, manufacturing, and regulatory clearances exist today.
-  2. *Recurring daily demand, not a fad:* Pain management is chronic and permanent across demographics.
-  3. *Immediate post-acquisition value creation:* 10-minute quick commerce (Blinkit, Zepto, Instamart), modern packaging refresh, D2C subscription engine.
-- **Right Page (Page 15): The Proposed Transaction Structure**
-  - *Outright Acquisition:* 100% Brand, trademarks, formulations, IP, marketplace accounts, customer data.
-  - *Exclusive Master Supply SLA:* Manufacturing continues at Unexo facility in Delhi/Noida &mdash; Giga Capital inherits the brand with zero factory CapEx or pharmaceutical plant liability.
-  - *Initial Meeting Agenda:* Commercial diagnostics, supply SLA walkthrough, carve-out mechanics.
+#### Spread 7: Investment Thesis (Page 13) & The Ask (Page 14)
+- **Left Page (Page 13): Investment Thesis**
+  - Category Pill: `INVESTMENT THESIS`.
+  - Title: *"Viopatch fits an early-stage brand incubation thesis"*.
+  - **"Roorkee to Roorkee" Connection:** Highlights Arti Gill (IIT Roorkee alumna) and Unexo Life Sciences' manufacturing facility in Roorkee, Uttarakhand (operating since 1972).
+  - Footer: Slide `13`.
+- **Right Page (Page 14): The Ask**
+  - Category Pill: `THE ASK`.
+  - Title: *"The Ask"*.
+  - Clean two-column structure: 100% Brand & IP Ownership + Asset-Light Continuity (Master Supply Agreement). Green box removed.
+  - Footer: Slide `14`.
 
 ---
 
-#### Spread 8 (Pages 16 & 17): Regulatory Governance & Back Cover
-- **Left Page (Page 16): Pharmaceutical Rigor & Compliance Framework**
-  - ISO Class 8 cleanrooms, US-FDA CFR 21 principles, cGMP standards.
-  - AYUSH Premium Mark, ISO 13485:2016, CE Certified, ANVISA Brazil approved.
-- **Right Page (Page 17): Back Cover**
-  - Solid Viopatch Cool Blue (`#0054A6`).
-  - Master Viopatch dual-color wordmark.
-  - Corporate credentials & confidential contact details.
+#### Spread 8: Back Cover (Page 15)
+- **Single Slide Centered:** Symmetrical with Front Cover.
+- **Background:** Solid Viopatch Cool Blue (`#0054A6`).
+- **Slide Master Logo:** Top-right placement.
+- **Title:** BRAND BOOK &middot; 11 September 2026.
+- **Corporate Details:** Unexo Life Sciences Private Limited &middot; Roorkee, Uttarakhand.
+- **Footer:** `&copy; Unexo Life Sciences Private Limited` | Slide `15`.

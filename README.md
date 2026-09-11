@@ -89,11 +89,13 @@ Before merging any changes into `main`, complete the following verification step
   - Strictly zero gradients on corporate slides.
   - Zero decorative radar/target watermarks.
   - Body text is statutory charcoal (`#2A2A28`), borders are clinical slate (`#475569`), and wordmarks adhere to the 3.7:1 aspect ratio.
-- [ ] **Facing Spread Structure (17 Pages / 9 Spreads)**:
-  - Page 1: Cover (Single slide).
-  - Page 2: Blank Inside Front Cover.
-  - Pages 4–13 (Spreads 2–6): Strict rhythm of **Left Page (Even) = SKU Story**, **Right Page (Odd) = Physical Sample Mount Zone**.
-  - Pages 14–17: Incubation, Acquisition, Governance, Back Cover.
+- [ ] **Facing Spread Structure (16 Pages / 9 Spreads)**:
+  - Page 0: Cover (Single slide).
+  - Page 1: Blank Inside Front Cover.
+  - Page 2: Macro Market Thesis & Competitive Landscape.
+  - Pages 3–12 (Spreads 2–6): Strict rhythm of **Odd Page = SKU Story**, **Even Page = Physical Sample Mount Zone**.
+  - Pages 13–14: Investment Thesis ("Roorkee to Roorkee") & The Ask.
+  - Page 15: Back Cover (Single slide).
 - [ ] **GitHub CLI Email Privacy (GH007)**:
   - If you have "Block command line pushes that expose my email" enabled in GitHub account settings, verify that your local git email is configured to your GitHub no-reply address:
     ```bash

@@ -144,17 +144,21 @@ html, body {
   background: #161B22;
   border: 1px solid #30363D;
   color: #C9D1D9;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11.5px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
   text-decoration: none;
+  min-height: 32px;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .btn-tool:hover {
@@ -173,6 +177,70 @@ html, body {
   background: #238636;
   color: #FFFFFF;
   border-color: #2EA043;
+}
+
+/* ==========================================================================
+   BLEED & SAFETY MARGIN GUIDES
+   ========================================================================== */
+.bleed-overlay,
+.safe-margin-overlay {
+  display: none;
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+body.show-bleeds .bleed-overlay {
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed rgba(239, 68, 68, 0.85); /* 3mm outer trim boundary */
+}
+
+body.show-bleeds .bleed-overlay::before {
+  content: '3mm Bleed / Trim Perimeter';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #EF4444;
+  background: rgba(13, 17, 23, 0.9);
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+body.show-bleeds .safe-margin-overlay {
+  display: block;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  border: 1.5px dashed rgba(59, 130, 246, 0.75); /* 5mm safe content boundary */
+}
+
+body.show-bleeds .safe-margin-overlay::before {
+  content: 'Safe Content Area (5mm Margin)';
+  position: absolute;
+  bottom: 4px;
+  left: 6px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #60A5FA;
+  background: rgba(13, 17, 23, 0.9);
+  padding: 2px 6px;
+  border-radius: 2px;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .spread-indicator {
@@ -1115,6 +1183,119 @@ html, body {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+}
+
+/* ==========================================================================
+   PHYSICAL SAMPLE MOUNT DIE-CUT SPECIFICATIONS
+   ========================================================================== */
+.sample-mount-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #F8FAFC;
+  border: 1px dashed #CBD5E1;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.sample-die-frame {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px dashed #0054A6;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 84, 166, 0.08);
+  box-sizing: border-box;
+}
+
+.bracket-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #0054A6;
+  border-style: solid;
+  pointer-events: none;
+}
+.bracket-corner.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+.bracket-corner.tr { top: -2px; right: -2px; border-width: 3px 3px 0 0; }
+.bracket-corner.bl { bottom: -2px; left: -2px; border-width: 0 0 3px 3px; }
+.bracket-corner.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
+
+.die-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.25;
+}
+.die-crosshair::before,
+.die-crosshair::after {
+  content: '';
+  position: absolute;
+  background: #0054A6;
+}
+.die-crosshair::before { top: 0; bottom: 0; left: 9.5px; width: 1px; }
+.die-crosshair::after { left: 0; right: 0; top: 9.5px; height: 1px; }
+
+.glue-target {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(253, 205, 139, 0.35);
+  border: 1.5px dashed #F26B43;
+  color: #C2410C;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.glue-target.top { top: 12px; }
+.glue-target.bottom { bottom: 12px; }
+
+.die-content-label {
+  text-align: center;
+  z-index: 3;
+}
+.die-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0054A6;
+  text-transform: uppercase;
+}
+.die-dim-pill {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0054A6;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 6px 0;
+}
+.die-instructions {
+  font-size: 10px;
+  color: #64748B;
+  max-width: 240px;
+  line-height: 1.35;
+  margin: 0 auto;
 }
 
 /* ==========================================================================

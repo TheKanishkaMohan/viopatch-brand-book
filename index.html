@@ -18,9 +18,10 @@
   <header id="app-header">
     <div class="brand-badge">
       <div class="brand-wordmark-header">VIO<span>PATCH</span><sup>&reg;</sup></div>
-      <div class="badge-tag">Brand Book &middot; Giga Capital</div>
+      <div class="badge-tag">Brand Book</div>
     </div>
 
+    <!-- Navigation Controls -->
     <div class="nav-controls">
       <button class="btn-tool" id="btn-prev" title="Previous Spread (Left Arrow)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Prev
@@ -31,42 +32,24 @@
       <button class="btn-tool" id="btn-next" title="Next Spread (Right Arrow)">
         Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
-
-      <span style="width:1px; height:18px; background:#30363D; margin:0 4px;"></span>
-
-      <!-- Spread Dropdown -->
-      <select class="btn-tool" id="select-spread" style="background:#161B22; color:#C9D1D9; padding-right:20px;">
-        <option value="0">Spread 0: Cover (Page 1)</option>
-        <option value="1">Spread 1: Blank &amp; Market Thesis (Pages 2–3)</option>
-        <option value="2">Spread 2: Knee Patch SKU &amp; Mount (Pages 4–5)</option>
-        <option value="3">Spread 3: Back XL SKU &amp; Mount (Pages 6–7)</option>
-        <option value="4">Spread 4: Regular SKU &amp; Mount (Pages 8–9)</option>
-        <option value="5">Spread 5: Large SKU &amp; Mount (Pages 10–11)</option>
-        <option value="6">Spread 6: Period Pain SKU &amp; Mount (Pages 12–13)</option>
-        <option value="7">Spread 7: Incubation &amp; Acquisition (Pages 14–15)</option>
-        <option value="8">Spread 8: Regulatory &amp; Back Cover (Pages 16–17)</option>
-      </select>
-
-      <!-- Bleed & Crop Marks Toggle -->
-      <button class="btn-tool" id="btn-bleeds" title="Toggle 3mm Bleed Perimeter &amp; Safety Margins">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Bleed Guides
-      </button>
-
-      <button class="btn-tool" id="btn-print" title="Print to 16:9 / A4 Landscape PDF">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg> Print
-      </button>
     </div>
 
-    <!-- Review / Comment Actions -->
+    <!-- Action Buttons: README, Comments, Bleed Guides, Print -->
     <div style="display:flex; align-items:center; gap:8px;">
       <a href="https://github.com/TheKanishkaMohan/viopatch-brand-book#readme" target="_blank" rel="noopener noreferrer" class="btn-tool" id="btn-readme" title="Open README.md Documentation">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> README.md <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.6;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> README.md
       </a>
+      <button class="btn-tool" id="btn-review" title="Open review &amp; commenting drawer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Comments (<span id="comment-count-badge">0</span>)
+      </button>
       <button class="btn-tool" id="btn-drop-pin" style="display:none;" title="Click anywhere on the open pages to place a comment pin">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 0 0 1.4 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg> Drop Pin
       </button>
-      <button class="btn-tool" id="btn-review" title="Open review &amp; commenting drawer">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Comments (<span id="comment-count-badge">0</span>)
+      <button class="btn-tool" id="btn-bleeds" title="Toggle 3mm Bleed Perimeter &amp; Safety Margins">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Bleed Guides
+      </button>
+      <button class="btn-tool" id="btn-print" title="Print to 16:9 / A4 Landscape PDF">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg> Print
       </button>
     </div>
   </header>
@@ -75,18 +58,21 @@
   <main id="app-viewport">
     <div id="spread-stage">
       
-  <div class="spread-pair single-cover active" data-spread-index="0" data-spread-name="Cover" data-right-page="1">
-    <div class="slide-page theme-dark" data-page-number="1">
+  <div class="spread-pair single-cover active" data-spread-index="0" data-spread-name="Cover" data-right-page="0">
+    <div class="slide-page theme-dark" data-page-number="0">
       
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
+      <div class="slide-header" style="position:absolute; top:28px; right:32px; justify-content:flex-end;">
+        <div class="slide-master-logo dark-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+      </div>
       <div class="cover-layout">
         <div>
-          <div class="cover-eyebrow">CONFIDENTIAL</div>
+          <div class="cover-eyebrow">BRAND BOOK</div>
           <div class="cover-title-group">
-            <div class="cover-master-wordmark">VIO<span>PATCH</span><sup>&reg;</sup></div>
             <div class="cover-h1">India's First Herbal Pain-Relief Patch Brand</div>
+            <div style="font-family:'Roboto Mono', monospace; font-size:12px; color:var(--vio-dermal-yellow); margin-top:8px;">11 September 2026</div>
           </div>
         </div>
 
@@ -97,34 +83,33 @@
         </div>
       </div>
       <div class="slide-footer">
-        <span class="footer-text">Confidential | &copy; Unexo Life Sciences Private Limited</span>
-        <span class="slide-number">01</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">00</span>
       </div>
     </div>
   </div>
 
       
-  <div class="spread-pair" data-spread-index="1" data-spread-name="Market Thesis" data-left-page="2" data-right-page="3">
-    <!-- Page 2: Blank Inside Front Cover -->
-    <div class="slide-page page-left" data-page-number="2" style="background:var(--vio-hospital-grey);">
+  <div class="spread-pair" data-spread-index="1" data-spread-name="Market Thesis" data-left-page="1" data-right-page="2">
+    <!-- Page 1: Blank Inside Front Cover -->
+    <div class="slide-page page-left" data-page-number="1" style="background:var(--vio-hospital-grey);">
       
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
-      <div class="blank-inside-cover">
-        <div class="slide-master-logo light-bg" style="font-size:32px; opacity:0.25;">VIO<span>PATCH</span><sup>&reg;</sup></div>
-        <div class="blank-inside-caption">Inside Front Cover &middot; Intentionally Left Blank</div>
+      <div class="blank-inside-cover" style="display:flex; justify-content:center; align-items:center; height:100%;">
+        <div class="blank-inside-caption" style="font-family:'Montserrat', sans-serif; font-size:13px; color:var(--vio-clinical-slate); letter-spacing:0.04em;">Page intentionally left blank</div>
       </div>
       
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">02</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">01</span>
       </div>
     
     </div>
 
-    <!-- Page 3: Category White Space & Category Definition -->
-    <div class="slide-page page-right" data-page-number="3">
+    <!-- Page 2: Macro Market Thesis & Competitive Landscape -->
+    <div class="slide-page page-right" data-page-number="2">
       
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
@@ -136,70 +121,57 @@
         <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
       </div>
       <div class="slide-body">
-        <h2 class="slide-title">Pain relief patches are the most under-built brand category in Indian consumer health.</h2>
-        <div class="slide-subtitle">Indians are wary of long-term pill use but distrust gels. Patches solve for efficacy without the perceived baggage.</div>
+        <h2 class="slide-title" style="font-size:18px; margin-bottom:4px;">Pain relief patches are the most under-built brand category in Indian consumer health.</h2>
+        <div class="slide-subtitle" style="font-size:12px; margin-bottom:8px;">Indians are wary of long-term pill use, while traditional balms are greasy, stain clothing, and cause burning sensations. Patches provide clean, targeted, sustained transdermal relief without grease or gastric distress.</div>
 
-        <div class="stats-grid-compact">
-          <div class="stat-box-compact">
-            <div class="stat-num-compact">$3.5 Bn</div>
-            <div class="stat-label-compact">India Pain Market Today</div>
-            <div class="stat-desc-compact">Still ~60% pills despite rampant consumer anxiety around NSAID gastric ulcers.</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px;">
+          <!-- Chart 1: Market Channel Breakdown -->
+          <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:10px; display:flex; flex-direction:column;">
+            <div style="font-family:'Montserrat', sans-serif; font-size:12px; font-weight:700; color:var(--vio-cool-blue); margin-bottom:4px;">
+              $3.5 Bn India Pain Market by Channel
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; background:#F8FAFC; min-height:220px;">
+              <img src="assets/market_channel_breakdown.png" alt="Market Channel Breakdown" style="max-width:100%; max-height:210px; object-fit:contain;">
+            </div>
+            <div style="font-size:10px; color:#64748B; margin-top:6px; font-style:italic; line-height:1.35;">
+              ~60% of the market is still oral pills. Pain patches represent an emerging $50M+ whitespace with high margins and low organized competition. Source: author's estimates.
+            </div>
           </div>
-          <div class="stat-box-compact">
-            <div class="stat-num-compact">$50 Mn+</div>
-            <div class="stat-label-compact">Patches Segment Growth</div>
-            <div class="stat-desc-compact">Accelerating off a tiny organized base; massive whitespace vs. Japan/US mature markets.</div>
-          </div>
-          <div class="stat-box-compact">
-            <div class="stat-num-compact">High Margin</div>
-            <div class="stat-label-compact">Low Organized Competition</div>
-            <div class="stat-desc-compact">Online-first, non-discretionary recurring daily usage with proven consumer pull.</div>
-          </div>
-        </div>
 
-        <div class="white-space-callout">
-          <strong>The White Space:</strong> Indians distrust balms due to greasy clothing stains and foul smell, while physiotherapy is cost-prohibitive. Transdermal patches deliver 100% gastrointestinal bypass &mdash; targeted relief, culturally acceptable for repeat use, with zero gastric erosion.
-        </div>
-
-        <div class="pillars-4-compact">
-          <div class="pillar-card-compact">
-            <h4>1. First Herbal Patch</h4>
-            <p>5 standardized actives delivering 12-hr relief; built as a category platform.</p>
-          </div>
-          <div class="pillar-card-compact">
-            <h4>2. Clinically Proven</h4>
-            <p>Double-blind trial: pain relief onset in ~13 min; statistically significant vs placebo.</p>
-          </div>
-          <div class="pillar-card-compact">
-            <h4>3. Certified &amp; Export-Ready</h4>
-            <p>AYUSH Premium, ISO 9001/13485/45001, CE, ANVISA approved for Brazil; 18 nations.</p>
-          </div>
-          <div class="pillar-card-compact">
-            <h4>4. Brand, Not a Single SKU</h4>
-            <p>Proven extensions: Knee, Back XL, Regular, Large, Period Pain, Restorative Sleep.</p>
+          <!-- Chart 2: Competitive Landscape -->
+          <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:10px; display:flex; flex-direction:column;">
+            <div style="font-family:'Montserrat', sans-serif; font-size:12px; font-weight:700; color:var(--vio-cool-blue); margin-bottom:4px;">
+              Competitive Landscape &amp; Brand Innovation
+            </div>
+            <div style="flex:1; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; background:#F8FAFC; min-height:220px;">
+              <img src="assets/market_landscape.png" alt="Market Landscape" style="max-width:100%; max-height:210px; object-fit:contain;">
+            </div>
+            <div style="font-size:10px; color:#64748B; margin-top:6px; font-style:italic; line-height:1.35;">
+              Mature markets (US, Japan) exhibit rich brand innovation across specialized niches; Indian market remains nascent with immense whitespace for a category-defining brand. Source: author's analysis.
+            </div>
           </div>
         </div>
       </div>
       
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">03</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">02</span>
       </div>
     
     </div>
   </div>
 
       
-    <div class="spread-pair" data-spread-index="2" data-spread-name="Knee Patch" data-left-page="4" data-right-page="5">
+    <div class="spread-pair" data-spread-index="2" data-spread-name="Knee Patch" data-left-page="3" data-right-page="4">
       <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
-      <div class="slide-page page-left" data-page-number="4">
+      <div class="slide-page page-left" data-page-number="3">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
         <div class="slide-header">
           <div class="slide-header-left">
-            <span class="slide-category-pill">PRODUCT MONOGRAPH &middot; SKU: VP-KNEE-10</span>
+            <span class="slide-category-pill">PRODUCT 1 / 5</span>
           </div>
           <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
         </div>
@@ -242,14 +214,14 @@
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">04</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">03</span>
       </div>
     
       </div>
 
       <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
-      <div class="slide-page page-right" data-page-number="5">
+      <div class="slide-page page-right" data-page-number="4">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
@@ -266,12 +238,12 @@
               Sample Attachment Surface &mdash; Knee Pain Relief Patch
             </h3>
             <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
-              Affix 1 unit of physical product sachet using two peelable fugitive glue dots on target indicators.
+              Affix 1 unit of physical product sachet using peelable fugitive glue dots on target indicators.
             </p>
           </div>
 
           <div class="sample-mount-canvas" style="width:100%; height:340px;">
-            <div class="sample-die-frame" style="width:300px; height:300px;">
+            <div class="sample-die-frame" style="width:276px; height:276px;">
               <div class="bracket-corner tl"></div>
               <div class="bracket-corner tr"></div>
               <div class="bracket-corner bl"></div>
@@ -281,8 +253,8 @@
               <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
 
               <div class="die-content-label">
-                <div class="die-title">AFFIX PHYSICAL SAMPLE HERE</div>
-                <div class="die-dim-pill">POUCH DIE-LINE: 120 &times; 120 mm</div>
+                <div class="die-title">PHYSICAL SAMPLE MOUNT</div>
+                <div class="die-dim-pill">120 mm &times; 120 mm</div>
                 <div class="die-instructions">Touch the breathable micro-weave fabric. Feel the absence of greasy residue and test the butterfly joint contour.</div>
               </div>
             </div>
@@ -290,24 +262,24 @@
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">05</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">04</span>
       </div>
     
       </div>
     </div>
     
       
-    <div class="spread-pair" data-spread-index="3" data-spread-name="Back XL Patch" data-left-page="6" data-right-page="7">
+    <div class="spread-pair" data-spread-index="3" data-spread-name="Back XL Patch" data-left-page="5" data-right-page="6">
       <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
-      <div class="slide-page page-left" data-page-number="6">
+      <div class="slide-page page-left" data-page-number="5">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
         <div class="slide-header">
           <div class="slide-header-left">
-            <span class="slide-category-pill">PRODUCT MONOGRAPH &middot; SKU: VP-BACK-XL</span>
+            <span class="slide-category-pill">PRODUCT 2 / 5</span>
           </div>
           <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
         </div>
@@ -315,7 +287,7 @@
           <h2 class="slide-title">Back XL Pain Relief Patch</h2>
           <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
             <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
-            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Maximum Surface Coverage for Lumbar & Spine Deep-Tissue Relief</span>
+            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">High-Coverage Hydrogel Matrix for Lumbar & Sciatic Spasms</span>
           </div>
 
           <div class="sku-layout-left">
@@ -326,7 +298,7 @@
               <div class="sku-spec-badge">
                 <div>
                   <div class="badge-sub">Target Anatomy</div>
-                  <div class="badge-main">Lumbar Spine & Sacroiliac</div>
+                  <div class="badge-main">Lumbar, Sacral & Latissimus Spine</div>
                 </div>
                 <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
@@ -335,14 +307,14 @@
             </div>
 
             <div class="sku-details-column">
-              <p class="sku-narrative">The largest commercial transdermal patch in India. Engineered specifically for acute lumbago, desk-bound lower back spasm, and restoring uninterrupted restorative sleep.</p>
+              <p class="sku-narrative">Maximum surface coverage engineered for chronic lumbar stiffness and acute muscular spasms. High water-content hydrogel matrix ensures gentle, painless release even on hairy skin.</p>
               <div class="sku-bullets">
-                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Full Lumbar Span:</strong> 140 &times; 100 mm active hydrogel matrix covers the entire lower lumbar column.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Overnight Sweat-Resistant:</strong> Advanced polymer matrix resists nighttime movement without edge curl.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Stops 3 AM Wake-Up Pain:</strong> Constant zero-order release eliminates midnight throbbing pain spikes.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Zero Greasy Liniments:</strong> Replaces messy hot water bottles and sticky ointments completely.</span></div>
+                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Maximum Surface Reach:</strong> Covers entire lower lumbar zone to suppress multi-point radiant pain.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Painless Removal:</strong> Advanced hydrogel technology peels clean without pulling skin or body hair.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Targeted Counter-Irritation:</strong> Therapeutic balance of camphor and menthol overrides nociceptive signals.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Deep Tissue Penetration:</strong> Gandhpura methyl salicylate penetrates deep paraspinal musculature.</span></div>
               </div>
               <div class="sku-actives-box">
                 <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
                 <div class="actives-pill-row">
-                  <span class="active-pill">Gandhpura Taila 10%</span><span class="active-pill">Menthol 5%</span><span class="active-pill">Camphor 3%</span><span class="active-pill">Eucalyptus Oil 1%</span><span class="active-pill">Clove Oil 0.5%</span>
+                  <span class="active-pill">Gandhpura Taila 10%</span><span class="active-pill">Menthol 5%</span><span class="active-pill">Camphor 3%</span><span class="active-pill">Eucalyptus Oil 1%</span>
                 </div>
               </div>
             </div>
@@ -350,14 +322,14 @@
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">06</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">05</span>
       </div>
     
       </div>
 
       <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
-      <div class="slide-page page-right" data-page-number="7">
+      <div class="slide-page page-right" data-page-number="6">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
@@ -374,12 +346,12 @@
               Sample Attachment Surface &mdash; Back XL Pain Relief Patch
             </h3>
             <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
-              Affix 1 unit of physical product sachet using two peelable fugitive glue dots on target indicators.
+              Affix 1 unit of physical product sachet using peelable fugitive glue dots on target indicators.
             </p>
           </div>
 
           <div class="sample-mount-canvas" style="width:100%; height:340px;">
-            <div class="sample-die-frame" style="width:350px; height:250px;">
+            <div class="sample-die-frame" style="width:322px; height:229px;">
               <div class="bracket-corner tl"></div>
               <div class="bracket-corner tr"></div>
               <div class="bracket-corner bl"></div>
@@ -389,160 +361,160 @@
               <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
 
               <div class="die-content-label">
-                <div class="die-title">AFFIX PHYSICAL SAMPLE HERE</div>
-                <div class="die-dim-pill">POUCH DIE-LINE: 140 &times; 100 mm</div>
-                <div class="die-instructions">Feel the substantial physical size and multi-layer protective foil barrier sachet.</div>
+                <div class="die-title">PHYSICAL SAMPLE MOUNT</div>
+                <div class="die-dim-pill">140 mm &times; 100 mm</div>
+                <div class="die-instructions">Examine the high surface area coverage. Notice the medical-grade release film engineered for painless removal.</div>
               </div>
             </div>
           </div>
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">06</span>
+      </div>
+    
+      </div>
+    </div>
+    
+      
+    <div class="spread-pair" data-spread-index="4" data-spread-name="Regular Patch" data-left-page="7" data-right-page="8">
+      <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
+      <div class="slide-page page-left" data-page-number="7">
+        
+  <div class="bleed-overlay"></div>
+  <div class="safe-margin-overlay"></div>
+
+        <div class="slide-header">
+          <div class="slide-header-left">
+            <span class="slide-category-pill">PRODUCT 3 / 5</span>
+          </div>
+          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+        </div>
+        <div class="slide-body">
+          <h2 class="slide-title">Regular Multipurpose Pain Patch</h2>
+          <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
+            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Universal Anatomical Contour for Neck, Shoulder & Trapezius</span>
+          </div>
+
+          <div class="sku-layout-left">
+            <div class="sku-image-column">
+              <div class="sku-image-frame">
+                <img src="assets/product-regular.jpg" alt="Regular Multipurpose Pain Patch">
+              </div>
+              <div class="sku-spec-badge">
+                <div>
+                  <div class="badge-sub">Target Anatomy</div>
+                  <div class="badge-main">Cervical Spine, Deltoids & Trapezius</div>
+                </div>
+                <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
+                </div>
+              </div>
+            </div>
+
+            <div class="sku-details-column">
+              <p class="sku-narrative">The cornerstone hero SKU for desk-bound posture fatigue, cervical tension, and minor sports strains. Ultra-thin profile disappears seamlessly under formal office clothing.</p>
+              <div class="sku-bullets">
+                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Ultra-Discreet Profile:</strong> Zero bulk under fitted shirts, collared t-shirts, or daily office wear.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Odorless Camphor Tech:</strong> Low-vapor herbal matrix allows confident use in boardrooms and public spaces.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Consistent Transdermal Flux:</strong> Controlled 12-hour zero-order release avoids concentration spikes.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>High Reorder Velocity:</strong> Daily staple purchase driving over 65% repeat order rates across marketplaces.</span></div>
+              </div>
+              <div class="sku-actives-box">
+                <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
+                <div class="actives-pill-row">
+                  <span class="active-pill">Gandhpura Taila 10%</span><span class="active-pill">Menthol 5%</span><span class="active-pill">Camphor 3%</span><span class="active-pill">Clove Oil 0.5%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="slide-footer">
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
         <span class="slide-number">07</span>
       </div>
     
       </div>
-    </div>
-    
-      
-    <div class="spread-pair" data-spread-index="4" data-spread-name="Regular Multipurpose" data-left-page="8" data-right-page="9">
-      <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
-      <div class="slide-page page-left" data-page-number="8">
+
+      <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
+      <div class="slide-page page-right" data-page-number="8">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
         <div class="slide-header">
           <div class="slide-header-left">
-            <span class="slide-category-pill">PRODUCT MONOGRAPH &middot; SKU: VP-REG-10/30</span>
+            <span class="slide-category-pill">PHYSICAL SAMPLE ATTACHMENT SPECIFICATION</span>
           </div>
           <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
         </div>
-        <div class="slide-body">
-          <h2 class="slide-title">Regular Multipurpose Patch</h2>
-          <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-            <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
-            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">High-Velocity Medicine Cabinet Essential for Neck, Shoulder & Wrists</span>
+        <div class="slide-body" style="align-items:center;">
+          <div style="text-align:center; margin-bottom:6px;">
+            <h3 style="font-family:'Montserrat', sans-serif; font-size:16px; font-weight:700; color:var(--vio-cool-blue); margin:0;">
+              Sample Attachment Surface &mdash; Regular Multipurpose Pain Patch
+            </h3>
+            <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
+              Affix 1 unit of physical product sachet using peelable fugitive glue dots on target indicators.
+            </p>
           </div>
 
-          <div class="sku-layout-left">
-            <div class="sku-image-column">
-              <div class="sku-image-frame">
-                <img src="assets/product-regular.jpg" alt="Regular Multipurpose Patch">
-              </div>
-              <div class="sku-spec-badge">
-                <div>
-                  <div class="badge-sub">Target Anatomy</div>
-                  <div class="badge-main">Neck, Shoulders, Wrists & Ankles</div>
-                </div>
-                <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
-                </div>
-              </div>
-            </div>
+          <div class="sample-mount-canvas" style="width:100%; height:340px;">
+            <div class="sample-die-frame" style="width:229px; height:161px;">
+              <div class="bracket-corner tl"></div>
+              <div class="bracket-corner tr"></div>
+              <div class="bracket-corner bl"></div>
+              <div class="bracket-corner br"></div>
+              <div class="die-crosshair"></div>
+              <div class="glue-target top" style="left:50%; transform:translateX(-50%);">GLUE</div>
+              <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
 
-            <div class="sku-details-column">
-              <p class="sku-narrative">The highest-velocity SKU with astronomical repeat rates across Amazon, quick commerce, and pharmacy chains. Compact profile engineered for tech-neck, cervical stiffness, and everyday strains.</p>
-              <div class="sku-bullets">
-                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Universal Multi-Joint Fit:</strong> 100 &times; 70 mm contour adheres flat to wrists, ankles, and neck vertebrae.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Discreet Office Wear:</strong> Flesh-tone breathable substrate hides seamlessly beneath formal business attire.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Zero GI Danger:</strong> Ideal for desk professionals and elderly family members avoiding oral NSAID damage.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>High-LTV Packs:</strong> Available in 5, 10, and 30-patch economy family formats driving repeat orders.</span></div>
-              </div>
-              <div class="sku-actives-box">
-                <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
-                <div class="actives-pill-row">
-                  <span class="active-pill">Gandhpura Taila 10%</span><span class="active-pill">Menthol 5%</span><span class="active-pill">Camphor 3%</span><span class="active-pill">Eucalyptus Oil 1%</span><span class="active-pill">Clove Oil 0.5%</span>
-                </div>
+              <div class="die-content-label">
+                <div class="die-title">PHYSICAL SAMPLE MOUNT</div>
+                <div class="die-dim-pill">100 mm &times; 70 mm</div>
+                <div class="die-instructions">Compact universal sachet. Notice the slim packaging engineered for high-velocity FMCG and pharmacy dispensing.</div>
               </div>
             </div>
           </div>
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
         <span class="slide-number">08</span>
       </div>
     
       </div>
-
-      <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
-      <div class="slide-page page-right" data-page-number="9">
-        
-  <div class="bleed-overlay"></div>
-  <div class="safe-margin-overlay"></div>
-
-        <div class="slide-header">
-          <div class="slide-header-left">
-            <span class="slide-category-pill">PHYSICAL SAMPLE ATTACHMENT SPECIFICATION</span>
-          </div>
-          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
-        </div>
-        <div class="slide-body" style="align-items:center;">
-          <div style="text-align:center; margin-bottom:6px;">
-            <h3 style="font-family:'Montserrat', sans-serif; font-size:16px; font-weight:700; color:var(--vio-cool-blue); margin:0;">
-              Sample Attachment Surface &mdash; Regular Multipurpose Patch
-            </h3>
-            <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
-              Affix 1 unit of physical product sachet using two peelable fugitive glue dots on target indicators.
-            </p>
-          </div>
-
-          <div class="sample-mount-canvas" style="width:100%; height:340px;">
-            <div class="sample-die-frame" style="width:250px; height:175px;">
-              <div class="bracket-corner tl"></div>
-              <div class="bracket-corner tr"></div>
-              <div class="bracket-corner bl"></div>
-              <div class="bracket-corner br"></div>
-              <div class="die-crosshair"></div>
-              <div class="glue-target top" style="left:50%; transform:translateX(-50%);">GLUE</div>
-              <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
-
-              <div class="die-content-label">
-                <div class="die-title">AFFIX PHYSICAL SAMPLE HERE</div>
-                <div class="die-dim-pill">POUCH DIE-LINE: 100 &times; 70 mm</div>
-                <div class="die-instructions">Inspect the slimline portability and compact foil enclosure engineered for daily carry.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">09</span>
-      </div>
-    
-      </div>
     </div>
     
       
-    <div class="spread-pair" data-spread-index="5" data-spread-name="Large Patch" data-left-page="10" data-right-page="11">
+    <div class="spread-pair" data-spread-index="5" data-spread-name="Large Patch" data-left-page="9" data-right-page="10">
       <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
-      <div class="slide-page page-left" data-page-number="10">
+      <div class="slide-page page-left" data-page-number="9">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
         <div class="slide-header">
           <div class="slide-header-left">
-            <span class="slide-category-pill">PRODUCT MONOGRAPH &middot; SKU: VP-LRG-05</span>
+            <span class="slide-category-pill">PRODUCT 4 / 5</span>
           </div>
           <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
         </div>
         <div class="slide-body">
-          <h2 class="slide-title">Large Pain Relief Patch</h2>
+          <h2 class="slide-title">Large Multipurpose Pain Patch</h2>
           <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
             <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
-            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Targeted Broad-Muscle Coverage for Shoulders, Thighs & Calves</span>
+            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Extended Muscle Group Therapy for Hamstrings, Quads & Calves</span>
           </div>
 
           <div class="sku-layout-left">
             <div class="sku-image-column">
               <div class="sku-image-frame">
-                <img src="assets/product-large.jpg" alt="Large Pain Relief Patch">
+                <img src="assets/product-large.jpg" alt="Large Multipurpose Pain Patch">
               </div>
               <div class="sku-spec-badge">
                 <div>
                   <div class="badge-sub">Target Anatomy</div>
-                  <div class="badge-main">Hamstrings, Quads & Trapezius</div>
+                  <div class="badge-main">Quadriceps, Calves, Hamstrings & Scapula</div>
                 </div>
                 <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
@@ -551,117 +523,9 @@
             </div>
 
             <div class="sku-details-column">
-              <p class="sku-narrative">Bridging the regular patch and Back XL formats. Engineered for athletic recovery, running fatigue, delayed onset muscle soreness (DOMS), and broad muscular back tension.</p>
+              <p class="sku-narrative">Designed for active sports recovery and larger muscular planes. Features reinforced multidirectional elasticity that flexes naturally with heavy tendon contraction.</p>
               <div class="sku-bullets">
-                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Broad Muscle Bellies:</strong> Perfectly sized to envelop full hamstring, quadricep, and shoulder muscle groups.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Active Recovery:</strong> Increases localized micro-circulation and drains lactic acid without oral analgesics.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Active Movement Hold:</strong> High elasticity fabric stretches and contracts with active muscular motion.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Pure Botanical Actives:</strong> Pure Wintergreen, Menthol, and Eucalyptus provide immediate cooling relief.</span></div>
-              </div>
-              <div class="sku-actives-box">
-                <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
-                <div class="actives-pill-row">
-                  <span class="active-pill">Gandhpura Taila 10%</span><span class="active-pill">Menthol 5%</span><span class="active-pill">Camphor 3%</span><span class="active-pill">Eucalyptus Oil 1%</span><span class="active-pill">Clove Oil 0.5%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">10</span>
-      </div>
-    
-      </div>
-
-      <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
-      <div class="slide-page page-right" data-page-number="11">
-        
-  <div class="bleed-overlay"></div>
-  <div class="safe-margin-overlay"></div>
-
-        <div class="slide-header">
-          <div class="slide-header-left">
-            <span class="slide-category-pill">PHYSICAL SAMPLE ATTACHMENT SPECIFICATION</span>
-          </div>
-          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
-        </div>
-        <div class="slide-body" style="align-items:center;">
-          <div style="text-align:center; margin-bottom:6px;">
-            <h3 style="font-family:'Montserrat', sans-serif; font-size:16px; font-weight:700; color:var(--vio-cool-blue); margin:0;">
-              Sample Attachment Surface &mdash; Large Pain Relief Patch
-            </h3>
-            <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
-              Affix 1 unit of physical product sachet using two peelable fugitive glue dots on target indicators.
-            </p>
-          </div>
-
-          <div class="sample-mount-canvas" style="width:100%; height:340px;">
-            <div class="sample-die-frame" style="width:350px; height:250px;">
-              <div class="bracket-corner tl"></div>
-              <div class="bracket-corner tr"></div>
-              <div class="bracket-corner bl"></div>
-              <div class="bracket-corner br"></div>
-              <div class="die-crosshair"></div>
-              <div class="glue-target top" style="left:50%; transform:translateX(-50%);">GLUE</div>
-              <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
-
-              <div class="die-content-label">
-                <div class="die-title">AFFIX PHYSICAL SAMPLE HERE</div>
-                <div class="die-dim-pill">POUCH DIE-LINE: 140 &times; 100 mm</div>
-                <div class="die-instructions">Observe the high-integrity multi-layer barrier foil protecting volatile aromatic botanical actives.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">11</span>
-      </div>
-    
-      </div>
-    </div>
-    
-      
-    <div class="spread-pair" data-spread-index="6" data-spread-name="Period Pain Patch" data-left-page="12" data-right-page="13">
-      <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
-      <div class="slide-page page-left" data-page-number="12">
-        
-  <div class="bleed-overlay"></div>
-  <div class="safe-margin-overlay"></div>
-
-        <div class="slide-header">
-          <div class="slide-header-left">
-            <span class="slide-category-pill">PRODUCT MONOGRAPH &middot; SKU: VP-PERIOD-05</span>
-          </div>
-          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
-        </div>
-        <div class="slide-body">
-          <h2 class="slide-title">Period Pain Relief Herbal Patch</h2>
-          <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-            <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
-            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Discreet, Drug-Free 12-Hour Abdominal Comfort & Menstrual Relief</span>
-          </div>
-
-          <div class="sku-layout-left">
-            <div class="sku-image-column">
-              <div class="sku-image-frame">
-                <img src="assets/product-period.jpg" alt="Period Pain Relief Herbal Patch">
-              </div>
-              <div class="sku-spec-badge">
-                <div>
-                  <div class="badge-sub">Target Anatomy</div>
-                  <div class="badge-main">Lower Abdomen & Pelvic Region</div>
-                </div>
-                <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
-                </div>
-              </div>
-            </div>
-
-            <div class="sku-details-column">
-              <p class="sku-narrative">A groundbreaking fem-tech and wellness entry point. Formulated specifically for dysmenorrhea, delivering continuous antispasmodic botanical warmth directly to cramping pelvic muscle fibers.</p>
-              <div class="sku-bullets">
-                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Ultra-Thin Invisible Profile:</strong> Zero bulk beneath high-waist jeans, leggings, or formal office wear.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Odor-Locked Botanicals:</strong> Natural antispasmodic soothing scent without medicinal chemical smell.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Astronomical 28-Day Repeat:</strong> Predictable monthly recurring replenishment cycle perfect for D2C subscriptions.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>100% Non-Hormonal:</strong> Completely safe herbal formulation eliminating heavy oral antispasmodic pills.</span></div>
+                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Bi-Directional Stretch:</strong> Woven substrate flexes with high-intensity athletic tendon movements.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Sweat-Resistant Matrix:</strong> Adhesive retains clinical peel-strength through light perspiration and workouts.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Post-Workout Recovery:</strong> Accelerates lactic acid dispersion and counteracts DOMS muscular aches.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Therapeutic Botanical Blend:</strong> Eucalyptol synergy promotes microvascular blood flow across broad tissues.</span></div>
               </div>
               <div class="sku-actives-box">
                 <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
@@ -674,14 +538,14 @@
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">12</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">09</span>
       </div>
     
       </div>
 
       <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
-      <div class="slide-page page-right" data-page-number="13">
+      <div class="slide-page page-right" data-page-number="10">
         
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
@@ -695,15 +559,15 @@
         <div class="slide-body" style="align-items:center;">
           <div style="text-align:center; margin-bottom:6px;">
             <h3 style="font-family:'Montserrat', sans-serif; font-size:16px; font-weight:700; color:var(--vio-cool-blue); margin:0;">
-              Sample Attachment Surface &mdash; Period Pain Relief Herbal Patch
+              Sample Attachment Surface &mdash; Large Multipurpose Pain Patch
             </h3>
             <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
-              Affix 1 unit of physical product sachet using two peelable fugitive glue dots on target indicators.
+              Affix 1 unit of physical product sachet using peelable fugitive glue dots on target indicators.
             </p>
           </div>
 
           <div class="sample-mount-canvas" style="width:100%; height:340px;">
-            <div class="sample-die-frame" style="width:250px; height:250px;">
+            <div class="sample-die-frame" style="width:322px; height:229px;">
               <div class="bracket-corner tl"></div>
               <div class="bracket-corner tr"></div>
               <div class="bracket-corner bl"></div>
@@ -713,211 +577,275 @@
               <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
 
               <div class="die-content-label">
-                <div class="die-title">AFFIX PHYSICAL SAMPLE HERE</div>
-                <div class="die-dim-pill">POUCH DIE-LINE: 100 &times; 100 mm</div>
-                <div class="die-instructions">Feel the whisper-light, ultra-flexible dermal substrate engineered for sensitive lower abdominal skin.</div>
+                <div class="die-title">PHYSICAL SAMPLE MOUNT</div>
+                <div class="die-dim-pill">140 mm &times; 100 mm</div>
+                <div class="die-instructions">Engineered for large muscular planes. Observe the durable border seals preventing edge roll during movement.</div>
               </div>
             </div>
           </div>
         </div>
         
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">10</span>
+      </div>
+    
+      </div>
+    </div>
+    
+      
+    <div class="spread-pair" data-spread-index="6" data-spread-name="Period Pain Patch" data-left-page="11" data-right-page="12">
+      <!-- LEFT PAGE: SKU DESCRIPTION PAGE -->
+      <div class="slide-page page-left" data-page-number="11">
+        
+  <div class="bleed-overlay"></div>
+  <div class="safe-margin-overlay"></div>
+
+        <div class="slide-header">
+          <div class="slide-header-left">
+            <span class="slide-category-pill">PRODUCT 5 / 5</span>
+          </div>
+          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+        </div>
+        <div class="slide-body">
+          <h2 class="slide-title">Period Pain Herbal Relief Patch</h2>
+          <div class="slide-subtitle" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+            <span style="color:var(--vio-herbal-green); display:inline-flex;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 9.5 15 13c-1.5 2.5-3.5 3.5-4 7Z"/><path d="M9.8 6.1C10.5 3.5 12.5 2 15.5 2c-1 3-1 5.5 0 8"/></svg></span>
+            <span style="font-weight:600; color:var(--vio-herbal-green); font-family:'Roboto Mono', monospace; font-size:11px; text-transform:uppercase;">Gentle Abdominal Warmth & Menstrual Cramp Relief Matrix</span>
+          </div>
+
+          <div class="sku-layout-left">
+            <div class="sku-image-column">
+              <div class="sku-image-frame">
+                <img src="assets/product-period.jpg" alt="Period Pain Herbal Relief Patch">
+              </div>
+              <div class="sku-spec-badge">
+                <div>
+                  <div class="badge-sub">Target Anatomy</div>
+                  <div class="badge-main">Lower Abdomen & Sacral Pelvic Basin</div>
+                </div>
+                <div style="font-family:'Roboto Mono', monospace; font-size:11px; font-weight:700; color:var(--vio-dermal-yellow); display:flex; align-items:center; gap:4px;">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg> 12-HR FLUX
+                </div>
+              </div>
+            </div>
+
+            <div class="sku-details-column">
+              <p class="sku-narrative">Formulated specifically for dysmenorrhea and pelvic spasms. Replaces cumbersome hot water bottles with discreet, skin-safe continuous 12-hour thermal relaxation.</p>
+              <div class="sku-bullets">
+                <div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Gentle Non-Irritant Matrix:</strong> Dermatologically tested adhesive formulated for ultra-sensitive abdominal skin.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Discreet Comfort:</strong> Zero bulk and completely invisible under pants, dresses, leggings, or sarees.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Sustained Calming Warmth:</strong> Gentle herbal vasodilation eases deep smooth-muscle pelvic contractions.</span></div><div class="sku-bullet-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span><strong>Natural Cramp Relief:</strong> Clean herbal alternative to oral antispasmodic medications and hot water bags.</span></div>
+              </div>
+              <div class="sku-actives-box">
+                <div class="sku-actives-label">Standardized Active Botanical Matrix</div>
+                <div class="actives-pill-row">
+                  <span class="active-pill">Menthol 4%</span><span class="active-pill">Eucalyptus Oil 2%</span><span class="active-pill">Clove Oil 1%</span><span class="active-pill">Camphor 1.5%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="slide-footer">
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">11</span>
+      </div>
+    
+      </div>
+
+      <!-- RIGHT PAGE: SAMPLE ATTACHMENT PAGE -->
+      <div class="slide-page page-right" data-page-number="12">
+        
+  <div class="bleed-overlay"></div>
+  <div class="safe-margin-overlay"></div>
+
+        <div class="slide-header">
+          <div class="slide-header-left">
+            <span class="slide-category-pill">PHYSICAL SAMPLE ATTACHMENT SPECIFICATION</span>
+          </div>
+          <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+        </div>
+        <div class="slide-body" style="align-items:center;">
+          <div style="text-align:center; margin-bottom:6px;">
+            <h3 style="font-family:'Montserrat', sans-serif; font-size:16px; font-weight:700; color:var(--vio-cool-blue); margin:0;">
+              Sample Attachment Surface &mdash; Period Pain Herbal Relief Patch
+            </h3>
+            <p style="font-size:11px; color:var(--vio-clinical-slate); margin-top:2px;">
+              Affix 1 unit of physical product sachet using peelable fugitive glue dots on target indicators.
+            </p>
+          </div>
+
+          <div class="sample-mount-canvas" style="width:100%; height:340px;">
+            <div class="sample-die-frame" style="width:229px; height:229px;">
+              <div class="bracket-corner tl"></div>
+              <div class="bracket-corner tr"></div>
+              <div class="bracket-corner bl"></div>
+              <div class="bracket-corner br"></div>
+              <div class="die-crosshair"></div>
+              <div class="glue-target top" style="left:50%; transform:translateX(-50%);">GLUE</div>
+              <div class="glue-target bottom" style="left:50%; transform:translateX(-50%);">GLUE</div>
+
+              <div class="die-content-label">
+                <div class="die-title">PHYSICAL SAMPLE MOUNT</div>
+                <div class="die-dim-pill">100 mm &times; 100 mm</div>
+                <div class="die-instructions">Square abdominal die-cut. Feel the gentle texture designed specifically for sensitive pelvic application.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <div class="slide-footer">
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">12</span>
+      </div>
+    
+      </div>
+    </div>
+    
+      
+  <div class="spread-pair" data-spread-index="7" data-spread-name="Investment & Ask" data-left-page="13" data-right-page="14">
+    <!-- Page 13: Investment Thesis -->
+    <div class="slide-page page-left" data-page-number="13">
+      
+  <div class="bleed-overlay"></div>
+  <div class="safe-margin-overlay"></div>
+
+      <div class="slide-header">
+        <div class="slide-header-left">
+          <span class="slide-category-pill">INVESTMENT THESIS</span>
+        </div>
+        <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+      </div>
+      <div class="slide-body">
+        <h2 class="slide-title">Viopatch fits an early-stage brand incubation thesis</h2>
+        <div class="slide-subtitle">A high-margin consumer health asset with the hard pharmaceutical validation already solved.</div>
+
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-cool-blue); border-radius:4px; padding:10px 14px;">
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:13px; font-weight:700; color:var(--vio-cool-blue); margin-bottom:2px;">
+              1. The "Roorkee to Roorkee" Connection
+            </h4>
+            <p style="font-size:11.5px; line-height:1.4; color:#334155;">
+              A rare, natural entrepreneurial synergy: <strong>Arti Gill</strong> graduated from <strong>IIT Roorkee</strong>, while <strong>Unexo Life Sciences</strong> operates its state-of-the-art transdermal pharmaceutical plant in <strong>Roorkee, Uttarakhand</strong> (manufacturing excellence since 1972). A shared geographic DNA connecting deep scientific rigor with modern consumer brand incubation.
+            </p>
+          </div>
+
+          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-herbal-green); border-radius:4px; padding:10px 14px;">
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:13px; font-weight:700; color:var(--vio-herbal-green); margin-bottom:2px;">
+              2. Brand with the Hard Parts Already Solved
+            </h4>
+            <p style="font-size:11.5px; line-height:1.4; color:#334155;">
+              Formulation, double-blind clinical trials, stability data, cleanroom infrastructure, and export clearances (CE, ANVISA Brazil) exist today &mdash; acquisition buys years of derisked R&amp;D, not a speculative concept.
+            </p>
+          </div>
+
+          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-thermal-orange); border-radius:4px; padding:10px 14px;">
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:13px; font-weight:700; color:var(--vio-thermal-orange); margin-bottom:2px;">
+              3. Recurring-Demand Category, Not a Fad
+            </h4>
+            <p style="font-size:11.5px; line-height:1.4; color:#334155;">
+              Pain management is chronic, recurrent, and inescapable across age brackets (geriatric osteoarthritis, white-collar cervical fatigue, menstrual cramps) &mdash; non-discretionary recurring daily usage with immense repeat stickiness.
+            </p>
+          </div>
+
+          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-clinical-slate); border-radius:4px; padding:10px 14px;">
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:13px; font-weight:700; color:var(--vio-clinical-slate); margin-bottom:2px;">
+              4. Clear Value-Creation Levers Post-Acquisition
+            </h4>
+            <p style="font-size:11.5px; line-height:1.4; color:#334155;">
+              Sharper quick-commerce placement (Blinkit, Zepto, Instamart 10-min urgent relief), persona-based line extensions, modern packaging redesign, and subscription mechanics &mdash; all ready for accelerated scale.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
         <span class="slide-number">13</span>
       </div>
     
-      </div>
     </div>
-    
-      
-  <div class="spread-pair" data-spread-index="7" data-spread-name="Investment & Acquisition" data-left-page="14" data-right-page="15">
-    <!-- Page 14: Incubation Thesis -->
-    <div class="slide-page page-left" data-page-number="14">
+
+    <!-- Page 14: The Ask -->
+    <div class="slide-page page-right" data-page-number="14">
       
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
       <div class="slide-header">
         <div class="slide-header-left">
-          <span class="slide-category-pill">GIGA CAPITAL THESIS</span>
+          <span class="slide-category-pill">THE ASK</span>
         </div>
         <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
       </div>
       <div class="slide-body">
-        <h2 class="slide-title">Why this fits an early-stage brand-incubation thesis.</h2>
-        <div class="slide-subtitle">A high-velocity platform brand with the hardest pharmaceutical hurdles pre-solved.</div>
-
-        <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-cool-blue); border-radius:4px; padding:12px 16px;">
-            <h4 style="font-family:'Montserrat', sans-serif; font-size:13.5px; font-weight:700; color:var(--vio-cool-blue); margin-bottom:3px;">
-              1. A Brand with the Hard Parts Already Solved
-            </h4>
-            <p style="font-size:12px; line-height:1.45; color:#334155;">
-              Formulation, clinical validation, stability testing, manufacturing relationship, and multi-country regulatory clearances exist today &mdash; acquisition buys years of derisked pharmaceutical R&amp;D, not a speculative concept.
-            </p>
-          </div>
-
-          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-herbal-green); border-radius:4px; padding:12px 16px;">
-            <h4 style="font-family:'Montserrat', sans-serif; font-size:13.5px; font-weight:700; color:var(--vio-herbal-green); margin-bottom:3px;">
-              2. Recurring-Demand Category, Not a Consumer Fad
-            </h4>
-            <p style="font-size:12px; line-height:1.45; color:#334155;">
-              Pain management is chronic, recurrent, and inescapable across age brackets (geriatric osteoarthritis, white-collar posture pain, menstrual cramps) &mdash; the exact opposite of a hit-driven consumer bet.
-            </p>
-          </div>
-
-          <div style="background:var(--vio-hospital-grey); border-left:4px solid var(--vio-thermal-orange); border-radius:4px; padding:12px 16px;">
-            <h4 style="font-family:'Montserrat', sans-serif; font-size:13.5px; font-weight:700; color:var(--vio-thermal-orange); margin-bottom:3px;">
-              3. Clear Value-Creation Levers Post-Acquisition
-            </h4>
-            <p style="font-size:12px; line-height:1.45; color:#334155;">
-              Sharper D2C/quick-commerce positioning (Blinkit, Zepto, Instamart 10-minute delivery), persona-based line extensions, refreshed modern packaging, and subscription mechanics &mdash; all still under-exploited by current owner.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">14</span>
-      </div>
-    
-    </div>
-
-    <!-- Page 15: Acquisition & Structure -->
-    <div class="slide-page page-right" data-page-number="15">
-      
-  <div class="bleed-overlay"></div>
-  <div class="safe-margin-overlay"></div>
-
-      <div class="slide-header">
-        <div class="slide-header-left">
-          <span class="slide-category-pill">TRANSACTION STRUCTURE</span>
-        </div>
-        <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
-      </div>
-      <div class="slide-body">
-        <h2 class="slide-title">The conversation we'd like to start.</h2>
+        <h2 class="slide-title">The Ask</h2>
         <div class="slide-subtitle">Clean brand carve-out with asset-light manufacturing continuity.</div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px;">
-          <div style="background:#FFFFFF; border:1.5px solid var(--vio-cool-blue); border-radius:4px; padding:16px;">
-            <div style="font-family:'Roboto Mono', monospace; font-size:10px; font-weight:700; color:var(--vio-cool-blue); text-transform:uppercase; margin-bottom:4px;">ACQUISITION SCOPE</div>
-            <h4 style="font-family:'Montserrat', sans-serif; font-size:14px; font-weight:700; color:var(--vio-statutory-charcoal); margin-bottom:8px;">100% Brand &amp; IP Ownership</h4>
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:11.5px; color:#475569;">
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Brand, registered trademarks &amp; wordmarks</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Proprietary hydrogel herbal formulation IP</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Existing commercial accounts &amp; customer database</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Marketplace storefronts &amp; organic SEO equity</span></li>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;">
+          <div style="background:#FFFFFF; border:1.5px solid var(--vio-cool-blue); border-radius:6px; padding:20px;">
+            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-cool-blue); text-transform:uppercase; margin-bottom:6px;">ACQUISITION SCOPE</div>
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:15px; font-weight:700; color:var(--vio-statutory-charcoal); margin-bottom:12px;">100% Brand &amp; IP Ownership</h4>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:12px; color:#475569;">
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Viopatch brand, registered trademarks &amp; global wordmarks</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Proprietary hydrogel herbal formulation IP</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Existing commercial accounts, distribution rights &amp; customer base</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Marketplace storefront equity (Amazon, Flipkart, 1mg, Pharmeasy)</span></li>
             </ul>
           </div>
 
-          <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:4px; padding:16px;">
-            <div style="font-family:'Roboto Mono', monospace; font-size:10px; font-weight:700; color:var(--vio-herbal-green); text-transform:uppercase; margin-bottom:4px;">ASSET-LIGHT CONTINUITY</div>
-            <h4 style="font-family:'Montserrat', sans-serif; font-size:14px; font-weight:700; color:var(--vio-statutory-charcoal); margin-bottom:8px;">Exclusive Master Supply Agreement</h4>
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:6px; font-size:11.5px; color:#475569;">
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Manufacturing continues at Unexo facility in Delhi</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Giga inherits brand without needing to own a plant</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Zero CapEx, zero pharmaceutical factory liability</span></li>
-              <li style="display:flex; gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Direct access to 50-year sterile cleanroom infrastructure</span></li>
+          <div style="background:#FFFFFF; border:1.5px solid var(--vio-herbal-green); border-radius:6px; padding:20px;">
+            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-herbal-green); text-transform:uppercase; margin-bottom:6px;">ASSET-LIGHT CONTINUITY</div>
+            <h4 style="font-family:'Montserrat', sans-serif; font-size:15px; font-weight:700; color:var(--vio-statutory-charcoal); margin-bottom:12px;">Exclusive Master Supply Agreement</h4>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:12px; color:#475569;">
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Guaranteed manufacturing continuity at Unexo cleanrooms in Roorkee</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Zero CapEx, zero pharmaceutical factory liability or compliance overhead</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>50-year sterile production rigor with WHO-GMP &amp; ISO certifications</span></li>
+              <li style="display:flex; gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#379131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span>Pre-agreed volume pricing tiers ensuring high gross margins for Giga Capital</span></li>
             </ul>
-          </div>
-        </div>
-
-        <div style="margin-top:14px; background:#F0FDF4; border:1px solid #BBF7D0; border-radius:4px; padding:12px 16px; text-align:center;">
-          <div style="font-family:'Montserrat', sans-serif; font-weight:700; font-size:13.5px; color:#166534;">
-            Proposed First Meeting: Share Commercials &amp; Structure Mechanics
-          </div>
-          <div style="font-size:11.5px; color:#14532D; margin-top:2px;">
-            Happy to set up time with the Viopatch owner directly once there's mutual interest.
           </div>
         </div>
       </div>
       
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">15</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">14</span>
       </div>
     
     </div>
   </div>
 
       
-  <div class="spread-pair" data-spread-index="8" data-spread-name="Back Cover" data-left-page="16" data-right-page="17">
-    <!-- Page 16: Statutory Inside Back Cover -->
-    <div class="slide-page page-left" data-page-number="16" style="background:var(--vio-hospital-grey);">
+  <div class="spread-pair single-cover" data-spread-index="8" data-spread-name="Back Cover" data-right-page="15">
+    <div class="slide-page theme-dark" data-page-number="15">
       
   <div class="bleed-overlay"></div>
   <div class="safe-margin-overlay"></div>
 
-      <div class="slide-header">
-        <div class="slide-header-left">
-          <span class="slide-category-pill">REGULATORY GOVERNANCE</span>
-        </div>
-        <div class="slide-master-logo light-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
+      <div class="slide-header" style="position:absolute; top:28px; right:32px; justify-content:flex-end;">
+        <div class="slide-master-logo dark-bg">VIO<span>PATCH</span><sup>&reg;</sup></div>
       </div>
-      <div class="slide-body" style="justify-content:center;">
-        <div style="max-width:680px; margin:0 auto; background:#FFFFFF; border:1px solid #CBD5E1; border-radius:6px; padding:24px;">
-          <h3 style="font-family:'Montserrat', sans-serif; font-size:15px; font-weight:700; color:var(--vio-cool-blue); margin-bottom:10px;">
-            Pharmaceutical Rigor &amp; Compliance Framework
-          </h3>
-          <p style="font-size:12px; line-height:1.55; color:#475569; margin-bottom:14px;">
-            Viopatch is manufactured in state-of-the-art ISO Class 8 cleanrooms under strict cGMP protocols. Unexo Life Sciences operates under US-FDA CFR 21 principles, ensuring vaccine-grade sterile rigor and consistent zero-order transdermal flux across every production batch.
-          </p>
-          <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; text-align:center; padding-top:12px; border-top:1px solid #E2E8F0;">
-            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-cool-blue);">AYUSH PREMIUM</div>
-            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-cool-blue);">ISO 13485:2016</div>
-            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-cool-blue);">CE CERTIFIED</div>
-            <div style="font-family:'Roboto Mono', monospace; font-size:10.5px; font-weight:700; color:var(--vio-cool-blue);">ANVISA BRAZIL</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">16</span>
-      </div>
-    
-    </div>
-
-    <!-- Page 17: Back Cover -->
-    <div class="slide-page theme-dark page-right" data-page-number="17">
-      
-  <div class="bleed-overlay"></div>
-  <div class="safe-margin-overlay"></div>
-
-      <div class="cover-layout" style="justify-content:center; align-items:center; text-align:center;">
+      <div class="cover-layout">
         <div>
-          <div class="cover-master-wordmark" style="font-size:58px;">VIO<span>PATCH</span><sup>&reg;</sup></div>
-          <div style="font-family:'Roboto Mono', monospace; font-size:11px; letter-spacing:0.18em; color:var(--vio-dermal-yellow); text-transform:uppercase; margin-top:8px;">
-            Unexo Life Sciences Private Limited &middot; Est. 1972
-          </div>
-          <div style="width:50px; height:2px; background:var(--vio-dermal-yellow); margin:20px auto;"></div>
-          <p style="font-size:13px; color:#D1E4F7; max-width:420px; line-height:1.5; margin:0 auto;">
-            Fifty years of sterile pharmaceutical rigor, precision transdermal drug delivery, and botanical therapeutic excellence.
-          </p>
-          <div style="margin-top:24px; display:inline-flex; gap:14px; font-family:'Roboto Mono', monospace; font-size:10.5px; color:#FFFFFF; background:rgba(0,0,0,0.2); padding:6px 16px; border-radius:20px; border:1px solid rgba(255,255,255,0.15);">
-            <span>AYUSH Premium Mark</span>
-            <span>&bull;</span>
-            <span>ISO 9001 / 13485</span>
-            <span>&bull;</span>
-            <span>CE Certified</span>
-            <span>&bull;</span>
-            <span>ANVISA Approved</span>
+          <div class="cover-eyebrow">BRAND BOOK</div>
+          <div class="cover-title-group">
+            <div class="cover-h1" style="font-size:32px;">India's First Herbal Pain-Relief Patch Brand</div>
+            <div style="font-family:'Roboto Mono', monospace; font-size:12px; color:var(--vio-dermal-yellow); margin-top:8px;">11 September 2026</div>
           </div>
         </div>
 
-        <div style="position:absolute; bottom:30px; text-align:center; width:100%; left:0; font-size:10.5px; color:#93C5FD; font-family:'Roboto Mono', monospace;">
-          <div>Corporate Inquiries: info@unexo.in &middot; www.unexolifesciences.com</div>
-          <div style="margin-top:3px; opacity:0.75;">CONFIDENTIAL &middot; PREPARED EXCLUSIVELY FOR GIGA CAPITAL &middot; ALL RIGHTS RESERVED 2026</div>
+        <div class="cover-footer-meta">
+          <div>
+            <div class="meta-col-val" style="font-size:15px; color:#FFFFFF;">Unexo Life Sciences Private Limited &middot; Est. 1972</div>
+            <div style="font-family:'Roboto Mono', monospace; font-size:11px; color:#93C5FD; margin-top:4px;">
+              B-16, Sector 4, Roorkee, Uttarakhand &middot; www.unexolifesciences.com
+            </div>
+          </div>
         </div>
       </div>
-      
       <div class="slide-footer">
-        <span class="footer-text">VIOPATCH&reg; &middot; CONFIDENTIAL &middot; PREPARED FOR ARTI GILL (GIGA CAPITAL)</span>
-        <span class="slide-number">17</span>
+        <span class="footer-text">&copy; Unexo Life Sciences Private Limited</span>
+        <span class="slide-number">15</span>
       </div>
-    
     </div>
   </div>
 
