@@ -1,102 +1,93 @@
 # Viopatch Project File & Content Index
 
 > **Directory Root**: `C:\etc\viopatch`  
-> **Last Refreshed**: September 11, 2026 (23:32 IST)  
-> **Total Tracked Files**: 942 files across 5 primary directories  
-> **Total Directory Size**: 1930.95 MB (1.89 GB)  
+> **Last Refreshed**: September 11, 2026 (23:51 IST)  
+> **Total Tracked Files**: 946 files across 5 primary directories  
+> **Total Directory Size**: 1934.41 MB (1.89 GB)  
 
 ---
 
 ## Table of Contents
 1. [Executive Summary & Directory Architecture](#1-executive-summary--directory-architecture)
-2. [Root Master Files & Design System Assets](#2-root-master-files--design-system-assets)
-3. [Brand Book Production App (`brand-book/`)](#3-brand-book-production-app-brand-book)
-4. [Enterprise Asset Library (`brand-assets/`)](#4-enterprise-asset-library-brand-assets)
-5. [Archived Artifacts & Backups (`archive/`)](#5-archived-artifacts--backups-archive)
-6. [Scratch Workspace Analysis (`scratch/`)](#6-scratch-workspace-analysis-scratch)
-7. [File Type & Storage Distribution](#7-file-type--storage-distribution)
+2. [Deliverables & Production Repository (`deliverables/brand-book/`)](#2-deliverables--production-repository-deliverablesbrand-book)
+3. [Enterprise Asset Library (`brand-assets/`)](#3-enterprise-asset-library-brand-assets)
+4. [Archived Artifacts & Backups (`archive/`)](#4-archived-artifacts--backups-archive)
+5. [Scratch Workspace Analysis (`scratch/`)](#5-scratch-workspace-analysis-scratch)
+6. [File Type & Storage Distribution](#6-file-type--storage-distribution)
 
 ---
 
 ## 1. Executive Summary & Directory Architecture
 
-The `C:\etc\viopatch` directory is the central asset repository for **Viopatch** (manufactured by **Unexo Life Sciences Private Limited**), housing brand guidelines, commercial templates, raw media assets, and the print-ready monograph web application.
+The `C:\etc\viopatch` directory is the master workspace for **Viopatch** (manufactured by **Unexo Life Sciences Private Limited**). It organizes production deliverables, brand design specifications, raw media shoots, and the print-ready monograph web app.
 
 | Directory / Location | Subdirectories | Total Files | Size (MB) | Role & Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **`(Root Directory)`** | 0 | 8 | 3.28 MB | Canonical master documents: PPTX/DOTX templates, PDF/MD brand style guides, audit report |
-| **`brand-book/`** | — | 18 | 2.98 MB | Interactive 2-page spread web application, print monograph generator, GitHub Pages repo |
-| **`brand-assets/`** | — | 423 | 1892.24 MB | High-resolution packaging photography, AI anatomy concepts, listing graphics, model shoots, videos |
-| **`archive/`** | — | 16 | 23.49 MB | Retired PowerPoint backups, previous pitch deck (July 2026), and early concept prototypes |
-| **`scratch/`** | — | 476 | 8.95 MB | Temporary unpacked XML fragments and build intermediates from python-docx/pptx (safe to delete) |
+| **`(Root Directory)`** | 0 | 2 | 0.01 MB | Root metadata: `.gitignore` and master `FILE_INDEX.md` |
+| **`deliverables/`** | — | 25 | 9.46 MB | Version-controlled Git repository (brand-book): web app, Slide Master templates, docs, and single canonical Brand Style Guide |
+| **`brand-assets/`** | — | 423 | 1892.24 MB | High-resolution packaging photography, AI anatomy concepts, listing graphics, model shoots, videos (1.89 GB) |
+| **`archive/`** | — | 17 | 23.59 MB | Historical PowerPoint backups, retired pitch decks (July 2026), and superseded concept prototypes |
+| **`scratch/`** | — | 478 | 9.10 MB | Temporary unpacked XML fragments and build intermediates from python-docx/pptx (safe to delete) |
 | **`.agents/`** | — | 1 | 0.01 MB | Antigravity custom skill definitions (`print-ready-book`) |
-| **TOTAL** | **—** | **942** | **1930.95 MB** | Full project footprint |
+| **TOTAL** | **—** | **946** | **1934.41 MB** | Full project footprint |
 
 ---
 
-## 2. Root Master Files & Design System Assets
+## 2. Deliverables & Production Repository (`deliverables/brand-book/`)
 
-These are the authoritative production deliverables for corporate identity and presentations:
-
-| Filename | Size | Format / Version | Purpose |
-| :--- | :--- | :--- | :--- |
-| [`.gitignore`](file:///C:/etc/viopatch/.gitignore) | 0.2 KB | GITIGNORE | Root Git ignore rules protecting archive, scratch, and large raw video media |
-| [`BRAND_STYLE_GUIDE.md`](file:///C:/etc/viopatch/BRAND_STYLE_GUIDE.md) | 33.5 KB | MD | Authoritative 2026 Brand Design System specification (Version 2.0, 8 approved colors, strict solid #0054A6) |
-| [`FILE_INDEX.md`](file:///C:/etc/viopatch/FILE_INDEX.md) | 9.4 KB | MD | This master project index documenting all assets and directory architecture |
-| [`VIOPATCH-DOCUMENT-TEMPLATE.dotx`](file:///C:/etc/viopatch/VIOPATCH-DOCUMENT-TEMPLATE.dotx) | 34.8 KB | DOTX | Official corporate Word template with custom headers, typography hierarchy, and branded callouts |
-| [`VIOPATCH-PRESENTATION-TEMPLATE.potx`](file:///C:/etc/viopatch/VIOPATCH-PRESENTATION-TEMPLATE.potx) | 964.2 KB | POTX | Official 16:9 widescreen Slide Master presentation template (960pt x 540pt) |
-| [`VIOPATCH_BRAND_AUDIT_REPORT.docx`](file:///C:/etc/viopatch/VIOPATCH_BRAND_AUDIT_REPORT.docx) | 301.9 KB | DOCX | Comprehensive Brand Audit & Migration Report detailing pre/post design compliance across all collateral |
-| [`VIOPATCH_BRAND_STYLE_GUIDE.pdf`](file:///C:/etc/viopatch/VIOPATCH_BRAND_STYLE_GUIDE.pdf) | 692.1 KB | PDF | High-resolution compiled PDF export of the Brand Style Guide |
-| [`VIOPATCH_BRAND_STYLE_GUIDE.pptx`](file:///C:/etc/viopatch/VIOPATCH_BRAND_STYLE_GUIDE.pptx) | 1321.3 KB | PPTX | Master 16:9 Widescreen PowerPoint Brand Style Guide presentation with validated color tokens |
-
----
-
-## 3. Brand Book Production App (`brand-book/`)
-
-The `brand-book/` folder is a standalone, self-contained Git repository published live to **GitHub Pages** ([`TheKanishkaMohan/viopatch-brand-book`](https://github.com/TheKanishkaMohan/viopatch-brand-book)):
+The `deliverables/brand-book/` folder is the official Git repository published live to **GitHub Pages** ([`TheKanishkaMohan/viopatch-brand-book`](https://github.com/TheKanishkaMohan/viopatch-brand-book)):
 
 - **Live URL**: [https://thekanishkamohan.github.io/viopatch-brand-book/](https://thekanishkamohan.github.io/viopatch-brand-book/)
-- **Slide Master Dimensions**: 16:9 Widescreen standard ($960\text{ pt} \times 540\text{ pt}$ / $1920 \times 540\text{ px}$ spread)
-- **Architecture**: 16 Pages / 9 Spreads with Page 1 blank inside cover, Left = SKU Story, Right = Physical Sample Mount
-- **Features**: Viewport auto-scaler, mouse wheel scroll navigation, working 3mm Bleed Guides overlay, Markdown comment exporter
+- **Single Source of Truth**: Houses the ONE authoritative `BRAND_STYLE_GUIDE.md` (no duplicates).
+- **Version Control for Office Templates**: Master PPTX Slide Master and DOTX corporate templates are checked into `templates/`.
+- **Compiled Collateral**: Master PDFs and Audit Reports are organized in `docs/`.
+- **Developer Compiler**: `scripts/generate_deck.py` is checked in for programmatic slide builds.
+- **Contributor Guides**: Simple human 3-step walkthrough in `README.md`, strict AI rules in `AGENTS.md`.
 
-| File | Size | Role |
-| :--- | :--- | :--- |
-| `brand-book\.gitignore` | 0.2 KB | Production web/print deliverable |
-| `brand-book\BRAND_STYLE_GUIDE.md` | 33.5 KB | Production web/print deliverable |
-| `brand-book\FILE_INDEX.md` | 9.4 KB | Production web/print deliverable |
-| `brand-book\README.md` | 8.9 KB | Production web/print deliverable |
-| `brand-book\app.js` | 19.1 KB | Production web/print deliverable |
-| `brand-book\assets\brand-logo.png` | 454.3 KB | Production web/print deliverable |
-| `brand-book\assets\icon-master.png` | 117.9 KB | Production web/print deliverable |
-| `brand-book\assets\market_channel_breakdown.png` | 112.4 KB | Production web/print deliverable |
-| `brand-book\assets\market_landscape.png` | 375.1 KB | Production web/print deliverable |
-| `brand-book\assets\product-back-xl.jpg` | 342.6 KB | Production web/print deliverable |
-| `brand-book\assets\product-knee-alt.jpg` | 430.1 KB | Production web/print deliverable |
-| `brand-book\assets\product-knee.jpg` | 232.2 KB | Production web/print deliverable |
-| `brand-book\assets\product-large.jpg` | 242.8 KB | Production web/print deliverable |
-| `brand-book\assets\product-period.jpg` | 231.5 KB | Production web/print deliverable |
-| `brand-book\assets\product-regular.jpg` | 320.0 KB | Production web/print deliverable |
-| `brand-book\generate_deck.py` | 34.6 KB | Production web/print deliverable |
-| `brand-book\index.html` | 58.7 KB | Production web/print deliverable |
-| `brand-book\style.css` | 28.7 KB | Production web/print deliverable |
+| Category / Subfolder | Relative Path | Size | Description |
+| :--- | :--- | :--- | :--- |
+| Configuration | `deliverables\brand-book\.gitignore` | 0.2 KB | Deliverable component |
+| Documentation | `deliverables\brand-book\AGENTS.md` | 6.0 KB | Deliverable component |
+| Design System Authority | `deliverables\brand-book\BRAND_STYLE_GUIDE.md` | 33.5 KB | Deliverable component |
+| Documentation | `deliverables\brand-book\FILE_INDEX.md` | 9.3 KB | Deliverable component |
+| Documentation | `deliverables\brand-book\README.md` | 3.5 KB | Deliverable component |
+| Web Application | `deliverables\brand-book\app.js` | 19.1 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\brand-logo.png` | 454.3 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\icon-master.png` | 117.9 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\market_channel_breakdown.png` | 112.4 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\market_landscape.png` | 375.1 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-back-xl.jpg` | 342.6 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-knee-alt.jpg` | 430.1 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-knee.jpg` | 232.2 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-large.jpg` | 242.8 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-period.jpg` | 231.5 KB | Deliverable component |
+| Web Asset | `deliverables\brand-book\assets\product-regular.jpg` | 320.0 KB | Deliverable component |
+| Compiled Collateral | `deliverables\brand-book\docs\VIOPATCH_BRAND_AUDIT_REPORT.docx` | 301.9 KB | Deliverable component |
+| Compiled Collateral | `deliverables\brand-book\docs\VIOPATCH_BRAND_AUDIT_REPORT.pdf` | 4209.9 KB | Deliverable component |
+| Compiled Collateral | `deliverables\brand-book\docs\VIOPATCH_BRAND_STYLE_GUIDE.pdf` | 692.1 KB | Deliverable component |
+| Compiled Collateral | `deliverables\brand-book\docs\VIOPATCH_BRAND_STYLE_GUIDE.pptx` | 1321.3 KB | Deliverable component |
+| Web Application | `deliverables\brand-book\index.html` | 58.7 KB | Deliverable component |
+| Build Script | `deliverables\brand-book\scripts\generate_deck.py` | 34.6 KB | Deliverable component |
+| Web Application | `deliverables\brand-book\style.css` | 28.7 KB | Deliverable component |
+| Office Template | `deliverables\brand-book\templates\VIOPATCH-DOCUMENT-TEMPLATE.dotx` | 34.8 KB | Deliverable component |
+| Office Template | `deliverables\brand-book\templates\VIOPATCH-PRESENTATION-TEMPLATE.potx` | 74.5 KB | Deliverable component |
 
 ---
 
-## 4. Enterprise Asset Library (`brand-assets/`)
+## 3. Enterprise Asset Library (`brand-assets/`)
 
 The `brand-assets/` directory houses 423 media assets (~1.89 GB):
 
 1. **`Logos and Icons/`**: High-resolution vector logos and benefit emblems (AYUSH, Waterproof, Transdermal matrix).
-2. **`confirm-assets/`**: 4 packaging verification mockup images received via WhatsApp on Sept 8, 2026 (moved into `brand-assets/` during reorganization).
+2. **`confirm-assets/`**: 4 packaging verification mockup images received via WhatsApp on Sept 8, 2026.
 3. **`New Creatives/AI Images/`**: 271 AI-generated lifestyle, joint anatomy, transdermal flux, and packaging concepts.
-4. **`Old Creatives/`**: 143 heritage assets including studio human shoots (Back XL, Knee, Regular) and video review campaigns.
+4. **`Old Creatives/`**: 143 heritage assets including studio human shoots (Back XL, Knee, Regular) and video campaigns.
 
 ---
 
-## 5. Archived Artifacts & Backups (`archive/`)
+## 4. Archived Artifacts & Backups (`archive/`)
 
-Created during folder reorganization to isolate historical and superseding documents from the active root:
+Historical and superseding documents protected strictly by `.gitignore`:
 
 - `archive\VIOPATCH_BRAND_STYLE_GUIDE.backup_before_slide2.pptx` (968.8 KB)
 - `archive\VIOPATCH_BRAND_STYLE_GUIDE.backup_task1.pptx` (968.1 KB)
@@ -114,17 +105,18 @@ Created during folder reorganization to isolate historical and superseding docum
 - `archive\claude_output\viopatch-knee-spread-palette-a.html` (82.1 KB)
 - `archive\claude_output\viopatch-knee-spread.html` (82.1 KB)
 - `archive\pitch-deck-dated\2026-07-26 - Deck - Unexo Life Sciences (1).pptx` (17826.2 KB)
+- `archive\style-templates.zip` (105.0 KB)
 
 ---
 
-## 6. Scratch Workspace Analysis (`scratch/`)
+## 5. Scratch Workspace Analysis (`scratch/`)
 
 > [!NOTE]
-> **Status & Recommendation**: The `scratch/` directory contains **476 temporary files (~8.95 MB)** generated during earlier XML-level docx/pptx assembly scripts (`dotx_theme1.xml`, `pptx_extracted/`, `potx_slideMaster1.xml`, etc.). All master templates and compiled PPTX/PDF deliverables have already been finalized in the root directory. **This folder is completely safe to delete.**
+> **Status & Recommendation**: The `scratch/` directory contains **476 temporary files (~8.95 MB)** generated during earlier XML-level docx/pptx assembly scripts (`dotx_theme1.xml`, `pptx_extracted/`, `potx_slideMaster1.xml`, etc.). All master templates, compiled PPTX/PDF deliverables, and web apps are self-contained in `deliverables/brand-book/`. **This folder is completely safe to delete.**
 
 ---
 
-## 7. File Type & Storage Distribution
+## 6. File Type & Storage Distribution
 
 | File Extension | File Count | Total Size (MB) | Category |
 | :--- | :--- | :--- | :--- |
@@ -133,10 +125,10 @@ Created during folder reorganization to isolate historical and superseding docum
 | `.jpg` | 171 | 400.71 MB | Media |
 | `.mov` | 4 | 118.97 MB | Media |
 | `.psd` | 1 | 45.58 MB | Code / Data |
-| `.pdf` | 13 | 26.74 MB | Document / Template |
+| `.pdf` | 14 | 30.85 MB | Document / Template |
 | `.pptx` | 7 | 23.42 MB | Document / Template |
 | `.tif` | 1 | 13.35 MB | Code / Data |
-| `.potx` | 3 | 2.59 MB | Document / Template |
+| `.potx` | 5 | 1.86 MB | Document / Template |
 | `.xml` | 231 | 1.84 MB | Code / Data |
 | `.jpeg` | 5 | 1.43 MB | Media |
 | `.ttf` | 5 | 0.73 MB | Code / Data |
