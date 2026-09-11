@@ -1,78 +1,146 @@
-# Viopatch — Print-Ready Brand Book & Interactive Review Monograph
+# Viopatch Brand Book & Review Monograph — Contributor & Agent Guide
 
-> **Strategic Acquisition & Incubation Monograph**  
-> Prepared for **Arti Gill · Giga Capital**  
-> Published by **Unexo Life Sciences Private Limited** (Est. 1972)  
-> **Brand Design System:** Authoritative Reference `BRAND_STYLE_GUIDE.md` (Version 2.0)
+> **Live Monograph:** [https://thekanishkamohan.github.io/viopatch-brand-book/](https://thekanishkamohan.github.io/viopatch-brand-book/)  
+> **Repository:** [TheKanishkaMohan/viopatch-brand-book](https://github.com/TheKanishkaMohan/viopatch-brand-book)  
+> **Repository Maintainer:** [@TheKanishkaMohan](https://github.com/TheKanishkaMohan)  
+> **Authoritative Brand Guide:** `BRAND_STYLE_GUIDE.md` (Version 2.0)
 
----
+This repository contains the print-ready, interactive **Viopatch Brand Book** monograph prepared for **Arti Gill · Giga Capital**.
 
-## Overview
-
-This repository hosts the **Viopatch Brand Book** — a print-ready monograph designed for physical production on high-grade art paper stock with real transdermal patch sachets physically mounted onto facing sample spreads.
-
-It features an interactive **2-Page Facing Spread web application** with an integrated **visual pin-drop commenting and review system** for collaborative feedback.
-
-### 🌐 Live Interactive Review App (GitHub Pages)
-👉 **[Open Live Viopatch Brand Book](https://thekanishkamohan.github.io/viopatch-brand-book/)**
+This document serves as the operational guide for **human reviewers** wishing to iterate on their own copy, and for **AI coding agents** (Antigravity, Claude Code, Cursor, Copilot) making edits to this codebase.
 
 ---
 
-## Key Features
+## 1. How Reviewers Can Make Changes to Their Own Copy
 
-1. **2-Page Side-by-Side Spread Layout**:
-   - Matches Slide Master POTX 16:9 widescreen dimensions ($960\text{ pt} \times 540\text{ pt}$ / $1920 \times 540\text{ px}$ spread).
-   - Auto-scales dynamically to fit 100% of the desktop viewport without clipping.
-   - Smooth spread-to-spread navigation with keyboard arrow shortcuts (`←` / `→`) and spread dropdown selector.
-
-2. **Brand Style Guide (v2.0) Strict Compliance**:
-   - Solid Viopatch Cool Blue (`#0054A6`) cover with zero decorative gradients and zero non-compliant radar/target watermarks.
-   - Primary 8 approved brand colors: Cool Blue (`#0054A6`), Dermal Yellow (`#FDCD8B`), Herbal Green (`#379131`), Thermal Orange (`#F26B43`), Menthol Frost (`#0284C7`), Clinical Slate (`#475569`), Statutory Charcoal (`#2A2A28`), and Hospital Grey (`#F2F2F7`).
-
-3. **Pin-Drop Review & Commenting System**:
-   - Click **"Comments"** &rarr; **"Drop Pin"** to place a numbered annotation pin anywhere on the open slides.
-   - Dynamic pin re-indexing (`#1, #2, #3...`) upon adding or deleting comments.
-   - Direct pin deletion via drawer button or **right-clicking** on any pin on the canvas.
-   - **One-Click Feedback for Chat**: Export all feedback into formatted GitHub Markdown ready to paste directly into AI/chat workflows.
-   - Export/Import comments as JSON, and persistent `localStorage` synchronization.
-
-4. **Print-Ready Standards & Bleed Guides**:
-   - Click **"Bleed Guides"** to reveal the 3mm print bleed perimeter and safety margins.
-   - Click **"Print"** in the toolbar to generate 1:1 press-ready PDFs with clean vector typography.
-   - Physical sample spreads engineered with corner registration marks and target zones for peelable fugitive glue dots ("booger glue").
+### Option A: Reviewing & Annotating in the Browser (No Code Setup Required)
+1. Open the live site: **[https://thekanishkamohan.github.io/viopatch-brand-book/](https://thekanishkamohan.github.io/viopatch-brand-book/)**.
+2. Click **Comments** in the top navigation bar &rarr; click **Drop Pin**.
+3. Tap or click anywhere on a slide to place a numbered review pin, select a feedback category, and submit your note.
+4. Click **Copy for Agent / Chat (Markdown)** in the review drawer to instantly copy your feedback formatted as GitHub Markdown.
+5. Click **Export JSON** to download a local backup file of your review comments.
 
 ---
 
-## Monograph Architecture (17 Pages / 9 Spreads)
+### Option B: Editing the Codebase on Your Own Copy
+If you want to edit copy, layouts, or data directly:
 
-```
-[ SPREAD 0 ]  Page 1: Front Cover (Right / Solo)
-[ SPREAD 1 ]  Page 2: Inside Front Cover (BLANK)     │ Page 3: Category White Space & Moats
-[ SPREAD 2 ]  Page 4: Knee Patch Description         │ Page 5: Sample 1: Knee Patch Mount
-[ SPREAD 3 ]  Page 6: Back XL Description            │ Page 7: Sample 2: Back XL Mount
-[ SPREAD 4 ]  Page 8: Regular Multipurpose Desc.     │ Page 9: Sample 3: Regular Mount
-[ SPREAD 5 ]  Page 10: Large Patch Description       │ Page 11: Sample 4: Large Patch Mount
-[ SPREAD 6 ]  Page 12: Period Pain Patch Desc.       │ Page 13: Sample 5: Period Pain Mount
-[ SPREAD 7 ]  Page 14: Incubation Thesis             │ Page 15: Acquisition & CDMO Structure
-[ SPREAD 8 ]  Page 16: Regulatory Governance         │ Page 17: Back Cover (Solid Cool Blue)
-```
-
-- **Rhythm**: Every product spread pairs **Left Page = SKU Description & Mechanism** with **Right Page = Physical Sample Mount Zone**.
-
----
-
-## Repository Contents
-
-- `index.html` — Standalone 2-page spread web application with embedded book slides and review commenting engine.
-- `style.css` — 2026 Viopatch Brand Design System styling, 16:9 POTX spread geometry, and toggleable bleed overlays.
-- `app.js` — Spread controller, viewport auto-scaler, pin placement, `localStorage` manager, and Markdown exporter.
-- `assets/` — High-resolution packaging photography and renders for all 5 product lines.
-- `VIOPATCH-BRAND-BOOK-TEMPLATE.potx` — 1:1 Slide Master PowerPoint presentation template ($960\text{ pt} \times 540\text{ pt}$).
-- `outline-refined.md` — Complete 17-page editorial copy, clinical data, and die-cut specifications.
-- `BRAND_STYLE_GUIDE.md` — The authoritative 2026 Viopatch design system specification (Version 2.0).
+1. **Set Up a GitHub Account**:
+   - If you do not have an account, create one at [github.com/signup](https://github.com/signup).
+2. **Fork the Repository**:
+   - Visit [github.com/TheKanishkaMohan/viopatch-brand-book](https://github.com/TheKanishkaMohan/viopatch-brand-book).
+   - Click the **Fork** button (top-right) to create an independent copy under your personal account.
+3. **Clone Your Fork Locally**:
+   ```bash
+   git clone https://github.com/<YOUR-GITHUB-USERNAME>/viopatch-brand-book.git
+   cd viopatch-brand-book
+   ```
+4. **Preview & Test Locally**:
+   - The monograph is pure static web technology (HTML, CSS, JavaScript) with zero build tools or package managers required.
+   - Simply open `index.html` directly in any modern desktop browser (Chrome, Edge, Safari, Firefox), or run a local lightweight server:
+     ```bash
+     python -m http.server 8000
+     ```
+     and navigate to `http://localhost:8000`.
 
 ---
 
-## Confidentiality Notice
+## 2. How to Get Edit Access to the Repository
 
-*This document contains proprietary commercial concepts prepared exclusively for Giga Capital. Unauthorized reproduction is strictly prohibited.*
+To push changes directly to the project repository:
+
+1. **Request Direct Write Access**:
+   - Send your GitHub username to **Kanishka Mohan** (`@TheKanishkaMohan`).
+   - You will receive an invitation to join the repository as an authorized collaborator with write permissions.
+2. **Submit a Pull Request (Recommended Workflow)**:
+   - In your local clone, create a new branch:
+     ```bash
+     git checkout -b review/my-proposed-changes
+     ```
+   - Commit your changes and push the branch to your fork:
+     ```bash
+     git push origin review/my-proposed-changes
+     ```
+   - On GitHub, navigate to the original repository and click **Contribute** &rarr; **Open Pull Request**.
+   - Describe your revisions and tag `@TheKanishkaMohan` for review.
+
+---
+
+## 3. What Care to Take Before Merging into `main`
+
+> [!WARNING]
+> The `main` branch is configured with automated continuous deployment to **GitHub Pages**. Any commit merged into `main` is published **live within 60 seconds** and is immediately visible to Giga Capital stakeholders.
+
+Before merging any changes into `main`, complete the following verification steps:
+
+### Pre-Merge Verification Checklist
+- [ ] **Slide Generator Sync**:
+  - `generate_deck.py` is the programmatic compiler for `index.html`.
+  - If you modify slide copy, structure, or components, make the changes in `generate_deck.py` and run:
+    ```bash
+    python generate_deck.py
+    ```
+  - Ensure `index.html` is regenerated and committed together with `generate_deck.py`.
+- [ ] **100% Desktop Viewport Auto-Scaling**:
+  - Open `index.html` in your browser at 100% zoom.
+  - Verify that both facing pages of each spread fit cleanly side-by-side without vertical or horizontal viewport clipping.
+- [ ] **Brand Style Guide Compliance (v2.0)**:
+  - Verify that Cover and Back Cover use solid Viopatch Cool Blue (`#0054A6`).
+  - Strictly zero gradients on corporate slides.
+  - Zero decorative radar/target watermarks.
+  - Body text is statutory charcoal (`#2A2A28`), borders are clinical slate (`#475569`), and wordmarks adhere to the 3.7:1 aspect ratio.
+- [ ] **Facing Spread Structure (17 Pages / 9 Spreads)**:
+  - Page 1: Cover (Single slide).
+  - Page 2: Blank Inside Front Cover.
+  - Pages 4–13 (Spreads 2–6): Strict rhythm of **Left Page (Even) = SKU Story**, **Right Page (Odd) = Physical Sample Mount Zone**.
+  - Pages 14–17: Incubation, Acquisition, Governance, Back Cover.
+- [ ] **GitHub CLI Email Privacy (GH007)**:
+  - If you have "Block command line pushes that expose my email" enabled in GitHub account settings, verify that your local git email is configured to your GitHub no-reply address:
+    ```bash
+    git config user.email "<id>+<username>@users.noreply.github.com"
+    ```
+- [ ] **Review Comments System Integrity**:
+  - Verify that pin placement, comment drawer opening, comment deletion, and Markdown copying remain fully functional.
+
+---
+
+## 4. Instructions for AI Coding Agents (Antigravity, Claude, Cursor, Copilot)
+
+AI agents modifying this repository must follow these rules without exception:
+
+1. **Slide Master Geometry is Fixed**:
+   - The dimensions are locked 1:1 to `VIOPATCH-PRESENTATION-TEMPLATE.potx` ($960\text{ pt} \times 540\text{ pt}$ / $1920\text{ px} \times 540\text{ px}$ spread, 16:9 widescreen standard).
+   - Do NOT revert to 3D flipbook canvas engines, do NOT alter the 2-page CSS spread structure, and do NOT alter the viewport auto-scaler script in `app.js`.
+2. **Single Source of Truth**:
+   - Always edit slide markup in `generate_deck.py` and compile into `index.html` by running `python generate_deck.py`.
+   - Never produce divergent markup between `generate_deck.py` and `index.html`.
+3. **Style Guide Authority**:
+   - The authoritative design system is `BRAND_STYLE_GUIDE.md` (Version 2.0).
+   - Never introduce retired colors (`#123160`, `#F8FAFC`, `#3044A6`, `#0153A7`, `#2962FF`).
+   - Use only the 8 approved palette tokens: Cool Blue (`#0054A6`), Dermal Yellow (`#FDCD8B`), Herbal Green (`#379131`), Thermal Orange (`#F26B43`), Menthol Frost (`#0284C7`), Clinical Slate (`#475569`), Statutory Charcoal (`#2A2A28`), and Hospital Grey (`#F2F2F7`).
+4. **Comments Engine Maintenance**:
+   - Maintain centralized DOM event delegation on `#comments-list` (`data-action="delete"`, `data-action="jump"`).
+   - Always perform type-safe comment comparisons (`String(c.id) !== String(id)`).
+   - Do NOT introduce blocking browser modals (`confirm()`, `prompt()`) that fail on modern mobile or embedded browsers.
+
+---
+
+## 5. 🚩 Flagging "Significant Changes"
+
+> [!IMPORTANT]
+> Any change affecting physical production, medical/regulatory claims, commercial deal structure, or master brand geometry is classified as a **Significant Change**.
+
+### What Constitutes a "Significant Change":
+1. **Physical Sample Specifications**: Modifying sachet die-line dimensions (e.g. Knee Patch $120 \times 120\text{ mm}$, Back XL $140 \times 100\text{ mm}$, Period Pain $100 \times 100\text{ mm}$), glue dot targets, or paper substrate caliper.
+2. **Clinical & Regulatory Claims**: Modifying transdermal release curves, active ingredient ratios, clinical study references, or DCGI / CE / CDSCO statutory disclaimers.
+3. **Commercial & Transaction Architecture**: Changes to the Giga Capital incubation thesis, acquisition valuation triggers, royalty structures, or CDMO production scale commitments.
+4. **Design System & Palette**: Modifying the primary `#0054A6` color, altering the dual-color `VIO` / `PATCH` wordmark geometry, or introducing new typography.
+5. **Spread Pagination & Layout**: Adding, removing, or re-ordering pages, or altering the Left-Right facing rhythm.
+
+### Protocol for Handling Significant Changes:
+- **For Human Reviewers**:
+  - Tag the Pull Request with the label or title prefix `[SIGNIFICANT CHANGE]`.
+  - Summarize the business rationale and request explicit sign-off from `@TheKanishkaMohan` prior to merging into `main`.
+- **For AI Agents**:
+  - **STOP & FLAG**: When asked to make any change matching the criteria above, the agent must explicitly summarize the proposed change, explain the implications, and wait for the user's explicit confirmation before committing to `main`.
+  - Update `outline-refined.md` and `walkthrough.md` whenever an approved significant change is made.
