@@ -195,6 +195,12 @@
     btnExportJson?.addEventListener('click', exportCommentsJson);
     btnImportJson?.addEventListener('click', () => fileInput?.click());
     fileInput?.addEventListener('change', importCommentsJson);
+
+    // Support offline/local README.md link
+    const btnReadme = document.getElementById('btn-readme');
+    if (btnReadme && window.location.protocol === 'file:') {
+      btnReadme.href = 'README.md';
+    }
   }
 
   function toggleBleeds() {
