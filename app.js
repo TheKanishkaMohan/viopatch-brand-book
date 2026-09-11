@@ -1,29 +1,31 @@
 /**
- * VIOPATCH BRAND BOOK — INTERACTIVE FLIPBOOK & COMMENTING ENGINE
- * Format: A4 Landscape (1123 x 794 px)
- * Dependencies: StPageFlip (Local standalone)
+ * VIOPATCH BRAND BOOK — 2-PAGE SPREAD VIEWER & COMMENTING ENGINE
+ * Authoritative Reference: C:\etc\viopatch\BRAND_STYLE_GUIDE.md
+ * Dimensions: 960pt x 540pt per slide (16:9 POTX standard)
  */
 
 (function () {
   'use strict';
 
   // --- STATE ---
-  let pageFlip = null;
+  let currentSpreadIndex = 0;
+  let totalSpreads = 0;
   let isReviewMode = false;
   let isPinDropActive = false;
   let currentPendingPin = null;
   let comments = [];
-  const STORAGE_KEY = 'viopatch_brand_book_comments_v1';
+  const STORAGE_KEY = 'viopatch_brand_book_comments_v2';
 
   // --- DOM ELEMENTS ---
-  const flipbookEl = document.getElementById('flipbook');
-  const scrollContainer = document.getElementById('scroll-container');
-  const pageIndicator = document.getElementById('page-indicator');
+  const spreadStage = document.getElementById('spread-stage');
+  const spreadPairs = document.querySelectorAll('.spread-pair');
+  const spreadIndicator = document.getElementById('spread-indicator');
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
+  const selectSpread = document.getElementById('select-spread');
+  const btnBleeds = document.getElementById('btn-bleeds');
   const btnReview = document.getElementById('btn-review');
   const btnDropPin = document.getElementById('btn-drop-pin');
-  const btnViewMode = document.getElementById('btn-view-mode');
   const btnPrint = document.getElementById('btn-print');
   const commentsDrawer = document.getElementById('comments-drawer');
   const btnCloseDrawer = document.getElementById('btn-close-drawer');
@@ -37,132 +39,136 @@
   const btnExportJson = document.getElementById('btn-export-json');
   const btnImportJson = document.getElementById('btn-import-json');
   const fileInput = document.getElementById('file-import-input');
-  const selectToc = document.getElementById('select-toc');
+  const btnDismissBanner = document.getElementById('btn-dismiss-banner');
+  const mobileBanner = document.getElementById('mobile-banner');
 
   // --- INITIALIZATION ---
   window.addEventListener('DOMContentLoaded', () => {
+    totalSpreads = spreadPairs.length;
     loadComments();
-    initFlipbook();
     setupEventListeners();
-    updatePageIndicator(0);
+    updateSpreadView();
+    autoScaleSpread();
     renderComments();
+    window.addEventListener('resize', autoScaleSpread);
   });
 
-  function initFlipbook() {
-    if (typeof St === 'undefined' || !St.PageFlip) {
-      console.warn('StPageFlip not found, falling back to scroll view.');
-      toggleViewMode('scroll');
-      return;
-    }
+  // --- AUTO SCALE FOR 100% 2-PAGE SPREAD VISIBILITY ---
+  function autoScaleSpread() {
+    if (!spreadStage) return;
+    const viewport = document.getElementById('app-viewport');
+    if (!viewport) return;
 
-    try {
-      pageFlip = new St.PageFlip(flipbookEl, {
-        width: 1123,
-        height: 794,
-        size: 'stretch',
-        minWidth: 560,
-        maxWidth: 1600,
-        minHeight: 400,
-        maxHeight: 1130,
-        maxShadowOpacity: 0.5,
-        showCover: true,
-        mobileScrollSupport: false,
-        usePortrait: true,
-        startPage: 0
-      });
+    const vWidth = viewport.clientWidth - 40; // padding buffer
+    const vHeight = viewport.clientHeight - 40;
 
-      const pages = flipbookEl.querySelectorAll('.book-page');
-      pageFlip.loadFromHTML(pages);
+    const activeSpread = document.querySelector('.spread-pair.active');
+    const isSingle = activeSpread?.classList.contains('single-cover');
+    const targetWidth = isSingle ? 960 : 1920; // 2 slides side-by-side
+    const targetHeight = 540;
 
-      pageFlip.on('flip', (e) => {
-        updatePageIndicator(e.data);
-        renderPins();
-      });
+    const scaleX = vWidth / targetWidth;
+    const scaleY = vHeight / targetHeight;
+    const scale = Math.min(scaleX, scaleY, 1.0); // max 1.0 to avoid blurring
 
-      pageFlip.on('init', () => {
-        renderPins();
-      });
-    } catch (err) {
-      console.error('Error initializing StPageFlip:', err);
-    }
+    spreadStage.style.transform = `scale(${scale})`;
   }
 
-  function updatePageIndicator(pageIndex) {
-    const totalPages = document.querySelectorAll('.book-page').length;
-    let label = '';
-    if (pageIndex === 0) {
-      label = 'Page 1 (Cover)';
-    } else if (pageIndex >= totalPages - 1) {
-      label = `Page ${totalPages} (Back Cover)`;
-    } else {
-      const leftPage = pageIndex % 2 === 1 ? pageIndex + 1 : pageIndex;
-      const rightPage = leftPage + 1 <= totalPages ? leftPage + 1 : leftPage;
-      label = `Pages ${leftPage}–${rightPage} of ${totalPages}`;
+  // --- SPREAD NAVIGATION ---
+  function showSpread(index) {
+    if (index < 0) index = 0;
+    if (index >= totalSpreads) index = totalSpreads - 1;
+
+    currentSpreadIndex = index;
+    updateSpreadView();
+    autoScaleSpread();
+    renderPins();
+  }
+
+  function updateSpreadView() {
+    spreadPairs.forEach((pair, idx) => {
+      pair.classList.toggle('active', idx === currentSpreadIndex);
+    });
+
+    const activePair = spreadPairs[currentSpreadIndex];
+    const spreadName = activePair?.dataset.spreadName || `Spread ${currentSpreadIndex + 1}`;
+    const leftPage = activePair?.dataset.leftPage;
+    const rightPage = activePair?.dataset.rightPage;
+
+    let pageLabel = '';
+    if (leftPage && rightPage) {
+      pageLabel = `Pages ${leftPage}–${rightPage} of 17`;
+    } else if (leftPage) {
+      pageLabel = `Page ${leftPage} of 17`;
+    } else if (rightPage) {
+      pageLabel = `Page ${rightPage} of 17`;
     }
 
-    pageIndicator.innerHTML = `<strong>${label}</strong>`;
-    if (selectToc) {
-      selectToc.value = pageIndex;
+    spreadIndicator.innerHTML = `<strong>${spreadName}</strong><br><span style="font-size:10px; color:#8B949E;">${pageLabel}</span>`;
+    if (selectSpread) {
+      selectSpread.value = currentSpreadIndex;
     }
+
+    btnPrev.disabled = currentSpreadIndex === 0;
+    btnNext.disabled = currentSpreadIndex === totalSpreads - 1;
+    btnPrev.style.opacity = currentSpreadIndex === 0 ? '0.4' : '1';
+    btnNext.style.opacity = currentSpreadIndex === totalSpreads - 1 ? '0.4' : '1';
   }
 
   // --- EVENT LISTENERS ---
   function setupEventListeners() {
-    // Nav
-    btnPrev?.addEventListener('click', () => pageFlip?.flipPrev());
-    btnNext?.addEventListener('click', () => pageFlip?.flipNext());
+    btnPrev?.addEventListener('click', () => showSpread(currentSpreadIndex - 1));
+    btnNext?.addEventListener('click', () => showSpread(currentSpreadIndex + 1));
 
-    // Keyboard Navigation
+    // Keyboard navigation
     window.addEventListener('keydown', (e) => {
       if (['input', 'textarea', 'select'].includes(document.activeElement?.tagName?.toLowerCase())) {
         return;
       }
       if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-        pageFlip?.flipNext();
+        showSpread(currentSpreadIndex + 1);
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        pageFlip?.flipPrev();
+        showSpread(currentSpreadIndex - 1);
       } else if (e.key === 'c' || e.key === 'C') {
         toggleReviewMode();
+      } else if (e.key === 'b' || e.key === 'B') {
+        toggleBleeds();
       }
     });
 
-    // TOC Jump
-    selectToc?.addEventListener('change', (e) => {
-      const targetPage = parseInt(e.target.value, 10);
-      if (!isNaN(targetPage)) {
-        jumpToPage(targetPage);
+    selectSpread?.addEventListener('change', (e) => {
+      const idx = parseInt(e.target.value, 10);
+      if (!isNaN(idx)) {
+        showSpread(idx);
       }
     });
 
-    // View Mode Toggle
-    btnViewMode?.addEventListener('click', () => {
-      const isScroll = scrollContainer.classList.contains('active');
-      toggleViewMode(isScroll ? 'flip' : 'scroll');
-    });
+    // Bleed / Print Marks Toggle
+    btnBleeds?.addEventListener('click', toggleBleeds);
 
     // Print
     btnPrint?.addEventListener('click', () => {
-      toggleViewMode('scroll');
-      setTimeout(() => {
-        window.print();
-      }, 300);
+      window.print();
     });
 
-    // Review Mode & Drawer
+    // Mobile banner dismiss
+    btnDismissBanner?.addEventListener('click', () => {
+      if (mobileBanner) mobileBanner.style.display = 'none';
+    });
+
+    // Review Mode
     btnReview?.addEventListener('click', toggleReviewMode);
     btnCloseDrawer?.addEventListener('click', () => commentsDrawer.classList.remove('open'));
-
-    // Pin Drop Mode
     btnDropPin?.addEventListener('click', togglePinDrop);
 
-    // Page Click for Pin Placement
+    // Page click for pins
     document.addEventListener('click', handlePageClickForPin);
 
     // Modal
     btnCancelPin?.addEventListener('click', closePinModal);
     formPin?.addEventListener('submit', handleSavePin);
 
-    // Export & Import
+    // Export & Chat
     btnCopyChat?.addEventListener('click', copyCommentsForChat);
     btnExportMd?.addEventListener('click', exportCommentsMarkdown);
     btnExportJson?.addEventListener('click', exportCommentsJson);
@@ -170,26 +176,9 @@
     fileInput?.addEventListener('change', importCommentsJson);
   }
 
-  function toggleViewMode(mode) {
-    if (mode === 'scroll') {
-      scrollContainer.classList.add('active');
-      flipbookEl.parentElement.style.display = 'none';
-      btnViewMode.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path></svg> Flipbook View`;
-    } else {
-      scrollContainer.classList.remove('active');
-      flipbookEl.parentElement.style.display = 'block';
-      btnViewMode.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Scroll View`;
-    }
-  }
-
-  function jumpToPage(index) {
-    if (pageFlip) {
-      pageFlip.flip(index);
-    }
-    const scrollTarget = document.getElementById(`scroll-page-${index + 1}`);
-    if (scrollTarget) {
-      scrollTarget.scrollIntoView({ behavior: 'smooth' });
-    }
+  function toggleBleeds() {
+    const isShowing = document.body.classList.toggle('show-bleeds');
+    btnBleeds.classList.toggle('active', isShowing);
   }
 
   // --- REVIEW & COMMENT SYSTEM ---
@@ -210,7 +199,7 @@
   function togglePinDrop() {
     isPinDropActive = !isPinDropActive;
     btnDropPin.classList.toggle('btn-accent', isPinDropActive);
-    document.body.classList.toggle('pin-drop-active', isPinDropActive);
+    document.body.classList.toggle('pin-cursor-active', isPinDropActive);
     if (isPinDropActive) {
       btnDropPin.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Click Page to Pin`;
     } else {
@@ -221,14 +210,14 @@
   function disablePinDrop() {
     isPinDropActive = false;
     btnDropPin.classList.remove('btn-accent');
-    document.body.classList.remove('pin-drop-active');
+    document.body.classList.remove('pin-cursor-active');
     btnDropPin.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7 11.5 7.3 11.8a1 1 0 0 0 1.4 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg> Drop Pin`;
   }
 
   function handlePageClickForPin(e) {
     if (!isPinDropActive) return;
 
-    const pageEl = e.target.closest('.book-page');
+    const pageEl = e.target.closest('.slide-page');
     if (!pageEl) return;
 
     const rect = pageEl.getBoundingClientRect();
@@ -247,7 +236,7 @@
   }
 
   function openPinModal(pageNum, x, y) {
-    document.getElementById('modal-page-info').textContent = `Page ${pageNum} (X: ${x}%, Y: ${y}%)`;
+    document.getElementById('modal-page-info').textContent = `Page ${pageNum} (Location: X ${x}%, Y ${y}%)`;
     document.getElementById('input-author').value = localStorage.getItem('viopatch_reviewer_name') || 'Arti Gill / Reviewer';
     document.getElementById('input-comment').value = '';
     pinModal.classList.add('active');
@@ -293,19 +282,18 @@
   }
 
   function renderPins() {
-    // Remove existing pins from DOM
-    document.querySelectorAll('.comment-pin').forEach(el => el.remove());
+    document.querySelectorAll('.slide-comment-pin').forEach(el => el.remove());
 
     if (!isReviewMode) return;
 
     comments.forEach((c) => {
-      const targetPages = document.querySelectorAll(`.book-page[data-page-number="${c.page}"]`);
+      const targetPages = document.querySelectorAll(`.slide-page[data-page-number="${c.page}"]`);
       targetPages.forEach(page => {
         const pin = document.createElement('div');
-        pin.className = `comment-pin ${c.resolved ? 'resolved' : ''}`;
+        pin.className = `slide-comment-pin ${c.resolved ? 'resolved' : ''}`;
         pin.style.left = `${c.x}%`;
         pin.style.top = `${c.y}%`;
-        pin.title = `[Pin #${c.pinNumber}] ${c.author}: ${c.text.substring(0, 60)}...`;
+        pin.title = `[Pin #${c.pinNumber}] ${c.author}: ${c.text.substring(0, 50)}...`;
         pin.innerHTML = `<span>${c.pinNumber}</span>`;
 
         pin.addEventListener('click', (e) => {
@@ -330,40 +318,50 @@
 
     if (comments.length === 0) {
       commentsList.innerHTML = `
-        <div style="text-align:center; padding:40px 20px; color:#768390; font-size:13px;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:10px; opacity:0.5;">
+        <div style="text-align:center; padding:32px 16px; color:#8B949E; font-size:12.5px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:8px; opacity:0.6;">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
-          <p>No review comments yet.</p>
-          <p style="margin-top:6px; font-size:12px;">Click <strong>Drop Pin</strong> and tap anywhere on the book to annotate.</p>
+          <p>No comments placed yet.</p>
+          <p style="margin-top:4px; font-size:11.5px;">Click <strong>Drop Pin</strong> and tap anywhere on the slides to annotate.</p>
         </div>
       `;
       return;
     }
 
-    // Sort by page asc
     const sorted = [...comments].sort((a, b) => a.page - b.page || a.pinNumber - b.pinNumber);
 
     commentsList.innerHTML = sorted.map(c => `
       <div class="comment-card" id="comment-card-${c.id}">
         <div class="comment-card-header">
-          <span class="comment-page-badge">Page ${c.page} · Pin #${c.pinNumber}</span>
+          <span class="comment-page-badge">Page ${c.page} &middot; Pin #${c.pinNumber}</span>
           <span class="comment-category-pill cat-${c.category}">${c.category}</span>
         </div>
         <div class="comment-text">${escapeHtml(c.text)}</div>
-        <div class="comment-meta">
+        <div class="comment-footer-meta">
           <span>${escapeHtml(c.author)}</span>
-          <div style="display:flex; gap:8px;">
-            <button class="btn-text-action" onclick="window.VioBook.jumpToPage(${c.page - 1})" style="background:none; border:none; color:#58A6FF; font-size:11px; cursor:pointer;">Go to Page</button>
-            <button class="btn-text-action" onclick="window.VioBook.deleteComment('${c.id}')" style="background:none; border:none; color:#F85149; font-size:11px; cursor:pointer;">Delete</button>
+          <div style="display:flex; gap:6px;">
+            <button onclick="window.VioSpread.jumpToPage(${c.page})" style="background:none; border:none; color:#58A6FF; font-size:10.5px; cursor:pointer;">View Page</button>
+            <button onclick="window.VioSpread.deleteComment('${c.id}')" style="background:none; border:none; color:#F85149; font-size:10.5px; cursor:pointer;">Delete</button>
           </div>
         </div>
       </div>
     `).join('');
   }
 
+  function jumpToPage(pageNum) {
+    // Find which spread contains this page
+    spreadPairs.forEach((pair, idx) => {
+      const left = parseInt(pair.dataset.leftPage || '0', 10);
+      const right = parseInt(pair.dataset.rightPage || '0', 10);
+      if (left === pageNum || right === pageNum) {
+        showSpread(idx);
+      }
+    });
+  }
+
   function deleteComment(id) {
-    if (confirm('Delete this comment?')) {
+    if (confirm('Delete this comment pin?')) {
       comments = comments.filter(c => c.id !== id);
       saveComments();
       renderComments();
@@ -387,20 +385,17 @@
   // --- EXPORT & CHAT INTEGRATION ---
   function copyCommentsForChat() {
     if (comments.length === 0) {
-      alert('No comments to copy. Drop some pins first!');
+      alert('No comments to copy. Click Drop Pin to place a comment first!');
       return;
     }
 
     const md = generateMarkdownSummary();
     navigator.clipboard.writeText(md).then(() => {
-      const originalText = btnCopyChat.innerHTML;
+      const orig = btnCopyChat.innerHTML;
       btnCopyChat.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied to Clipboard!`;
-      setTimeout(() => {
-        btnCopyChat.innerHTML = originalText;
-      }, 2000);
+      setTimeout(() => btnCopyChat.innerHTML = orig, 2000);
     }).catch(err => {
-      console.error('Failed to copy:', err);
-      alert('Failed to copy to clipboard. Use Download Markdown instead.');
+      alert('Failed to copy. Use Download .MD instead.');
     });
   }
 
@@ -420,13 +415,11 @@
   }
 
   function exportCommentsMarkdown() {
-    const md = generateMarkdownSummary();
-    downloadFile(md, 'viopatch-brand-book-comments.md', 'text/markdown');
+    downloadFile(generateMarkdownSummary(), 'viopatch-brand-book-comments.md', 'text/markdown');
   }
 
   function exportCommentsJson() {
-    const jsonStr = JSON.stringify(comments, null, 2);
-    downloadFile(jsonStr, 'viopatch-brand-book-comments.json', 'application/json');
+    downloadFile(JSON.stringify(comments, null, 2), 'viopatch-brand-book-comments.json', 'application/json');
   }
 
   function importCommentsJson(e) {
@@ -470,8 +463,8 @@
       .replace(/'/g, '&#039;');
   }
 
-  // Expose global helpers
-  window.VioBook = {
+  // Global helper
+  window.VioSpread = {
     jumpToPage,
     deleteComment
   };

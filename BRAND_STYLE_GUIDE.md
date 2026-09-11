@@ -41,7 +41,7 @@ Incorporating all empirical diagnostics, packaging evolutions, review comments, 
 
 ```
 ┌───────────────────────────────────┬───────────────────────────────────┬───────────────────────────────────┐
-│       Herbal & Pharma Rigor       │     Pain-Free Active Living       │     Restorative Sleep & Dignity   │
+│        Safety & Vitality          │        Active Mobility            │        Dignity & Rest             │
 ├───────────────────────────────────┼───────────────────────────────────┼───────────────────────────────────┤
 │ TIER 3 (Emotional Outcome)        │ TIER 3 (Emotional Outcome)        │ TIER 3 (Emotional Outcome)        │
 │ Zero Pill Anxiety & Organ Peace   │ Spontaneous Mobility & Freedom    │ 8+ Hours Restorative Sleep        │
@@ -55,27 +55,28 @@ Incorporating all empirical diagnostics, packaging evolutions, review comments, 
 │ 100% Herbal Active Matrix         │ Ultra-Thin, Non-Greasy & Odor-Locked Topical Patch                        │
 │ Gandhpura, Menthol, Clove, etc.   │ Breathable flexible weave; zero balm stains on clothes or bedsheets       │
 ├───────────────────────────────────┴───────────────────────────────────────────────────────────────────────┤
-│ FOUNDATION: 50+ Years Pharmaceutical Manufacturing Excellence (Unexo Life Sciences Est. 1972)             │
-│ US-FDA CFR 21 compliance • ISO Class 8 cleanrooms • Vaccine-grade sterile rigor                           │
+│ FOUNDATION: 50+ Years Pharmaceutical Manufacturing Excellence • Pioneering Transdermal Technology          │
+│ Backed by Vaccine-Grade Cleanroom Rigor (Unexo Life Sciences Est. 1972)                                  │
+│ US-FDA CFR 21 compliance • cGMP standards • ISO Class 8 cleanrooms • Vaccine-grade sterile infrastructure │
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 1.1 Thematic Pillars & Cross-Tier Architecture
 The Viopatch Brand Ladder organizes value progression across **three vertical strategic themes** spanning from foundational pharmaceutical infrastructure up to transformative human outcomes:
 
-1. **Herbal & Pharma Rigor (Theme 1)**:
+1. **Safety & Vitality (Theme 1)**:
    - *Foundation*: 50+ Years Unexo precision manufacturing under US-FDA CFR 21 and ISO Class 8 cleanrooms.
    - *Tier 1 (Physical)*: Standardized 100% Herbal Active Matrix (Gandhpura, Menthol, Camphor, Eucalyptus, Clove).
    - *Tier 2 (Functional)*: Zero GI Toxicity via 100% first-pass digestive bypass, eliminating gastric ulceration.
    - *Tier 3 (Emotional)*: Zero Pill Anxiety & Clean Organ Peace—freedom from oral analgesic fear.
 
-2. **Pain-Free Active Living (Theme 2)**:
+2. **Active Mobility (Theme 2)**:
    - *Foundation*: Transdermal flux kinetics and hydrogel polymer engineering.
    - *Tier 1 (Physical)*: Breathable, micro-porous elastic fabric optimized for tropical skin adhesion.
    - *Tier 2 (Functional)*: 12-Hour Sustained Zero-Order Delivery directly to inflamed joints without dosage spikes.
    - *Tier 3 (Emotional)*: Spontaneous Mobility & Freedom—reclaiming walking, family play, gardening, and stair-climbing.
 
-3. **Restorative Sleep & Dignified Discretion (Theme 3)**:
+3. **Dignity & Rest (Theme 3)**:
    - *Foundation*: Chronotherapy release curve mapped to human overnight rest cycles.
    - *Tier 1 (Physical)*: Ultra-thin, non-greasy, odor-locked patch leaving zero stains on bedsheets.
    - *Tier 2 (Functional)*: Overnight transdermal saturation with sweat-resistant adhesion that never peels.
@@ -84,8 +85,8 @@ The Viopatch Brand Ladder organizes value progression across **three vertical st
 ### 1.2 Color Differentiation on Tiers & Pillars
 - **Tier 3 Life-Changing Emotional Badge**: **Sunset Amber (`#C2410C`)**, distinctly differentiated from active thermal orange.
 - **Active Mobility Theme Elements**: **Viopatch Thermal Orange (`#F26B43`)** category marker with soft pastel orange fill (`#FFF7ED`, border `#FED7AA`).
-- **Herbal Rigor Theme Elements**: **Viopatch Herbal Green (`#379131`)** category marker with soft pastel mint fill (`#F0FDF4`, border `#BBF7D0`).
-- **Restorative Sleep Theme Elements**: **Viopatch Menthol Frost (`#0284C7`)** category marker with soft pastel calm blue fill (`#F0F9FF`, border `#BAE6FD`).
+- **Safety & Vitality Theme Elements**: **Viopatch Herbal Green (`#379131`)** category marker with soft pastel mint fill (`#F0FDF4`, border `#BBF7D0`).
+- **Dignity & Rest Theme Elements**: **Viopatch Menthol Frost (`#0284C7`)** category marker with soft pastel calm blue fill (`#F0F9FF`, border `#BAE6FD`).
 - **Card Titles & Body Copy**: **Viopatch Statutory Charcoal (`#2A2A28`)** for maximum legibility and strict brand alignment.
 - **Foundation Badge & Banner**: **Viopatch Cool Blue (`#0054A6`)** badge with clean hospital surface fill **Viopatch Hospital Calm Grey (`#F2F2F7`)** (border `#E2E8F0`). Older `#F8FAFC` is strictly retired.
 

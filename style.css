@@ -1,28 +1,31 @@
 /* ==========================================================================
-   VIOPATCH BRAND BOOK — DESIGN SYSTEM & FLIPBOOK STYLESHEET
-   Format: A4 Landscape (297mm x 210mm -> 1123px x 794px @ 96 DPI)
-   Authoritative Reference: BRAND_STYLE_GUIDE.md
+   VIOPATCH BRAND BOOK — DESIGN SYSTEM & 2-PAGE SPREAD VIEWER
+   Authoritative Reference: C:\etc\viopatch\BRAND_STYLE_GUIDE.md (Version 2.0)
+   Slide Master Dimensions: 960 pt x 540 pt (16:9 Widescreen standard)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&family=Roboto+Slab:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Brand Colors from Ratified Style Guide */
-  --vio-blue: #0054A6;          /* Viopatch Cool Blue - PMS 2145 C */
-  --vio-skin: #FDCD8B;          /* Viopatch Dermal Yellow - PMS 1345 C */
-  --vio-green: #379131;         /* Viopatch Herbal Green - PMS 361 C */
-  --vio-orange: #F26B43;        /* Viopatch Thermal Orange - PMS 1655 C */
-  --vio-frost: #0284C7;         /* Viopatch Menthol Frost - PMS 2995 C */
-  --vio-slate: #475569;         /* Viopatch Clinical Slate */
-  --vio-charcoal: #2A2A28;      /* Viopatch Statutory Charcoal */
-  --vio-calm-grey: #F2F2F7;     /* Viopatch Hospital Calm Grey */
-  --vio-paper: #FBFBF9;         /* High-grade book stock white */
-  --vio-paper-edge: #E2E8F0;    /* Page trim stroke */
-  --vio-amber: #C2410C;
+  /* ==========================================================================
+     STRICT 8 APPROVED BRAND COLORS (BRAND_STYLE_GUIDE.md Section 5)
+     Retired: #123160 (Pack Blue), #F8FAFC (Old grey), #3044A6, #0153A7, #2962FF
+     ========================================================================== */
+  --vio-cool-blue: #0054A6;       /* Primary Blue: ONLY blue allowed in brand system */
+  --vio-dermal-yellow: #FDCD8B;   /* Secondary: VIO wordmark & dermal substrate (PMS 1345 C) */
+  --vio-herbal-green: #379131;    /* Botanical Reassurance (PMS 361 C) */
+  --vio-thermal-orange: #F26B43;  /* Therapeutic Pain Epicenter (PMS 1655 C) */
+  --vio-menthol-frost: #0284C7;   /* Cryo-Relief & Hydrogel Matrix (PMS 2995 C) */
+  --vio-clinical-slate: #475569;  /* Headings, Dividers & Structural Borders */
+  --vio-statutory-charcoal: #2A2A28; /* Canonical Body Copy (Neutral Dark) */
+  --vio-hospital-grey: #F2F2F7;   /* Hospital Sterile Card Backing (Neutral Light) */
+  
+  --vio-pure-white: #FFFFFF;
+  --vio-sunset-amber: #C2410C;
 
-  /* Dimensions */
-  --page-width: 1123px;
-  --page-height: 794px;
+  /* Dimensions: Exact Slide Master 16:9 (960pt x 540pt) */
+  --slide-width: 960px;
+  --slide-height: 540px;
 }
 
 * {
@@ -34,11 +37,46 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: #1E2229;
-  color: var(--vio-charcoal);
+  background: #111418;
+  color: var(--vio-statutory-charcoal);
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   MOBILE & SCREEN RESOLUTION NOTIFICATION BANNER
+   ========================================================================== */
+
+#mobile-banner {
+  display: none;
+  background: #1C2128;
+  border-bottom: 1px solid #373E47;
+  color: #CDD9E5;
+  padding: 8px 16px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  z-index: 120;
+}
+
+#mobile-banner strong {
+  color: var(--vio-dermal-yellow);
+}
+
+#mobile-banner button {
+  background: none;
+  border: none;
+  color: #768390;
+  font-size: 14px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  #mobile-banner {
+    display: block;
+  }
 }
 
 /* ==========================================================================
@@ -46,13 +84,13 @@ html, body {
    ========================================================================== */
 
 #app-header {
-  height: 56px;
-  background: #111418;
-  border-bottom: 1px solid #2D333B;
+  height: 54px;
+  background: #0D1117;
+  border-bottom: 1px solid #21262D;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 16px;
   position: relative;
   z-index: 100;
   user-select: none;
@@ -64,24 +102,32 @@ html, body {
   gap: 12px;
 }
 
-.brand-badge .logo-text {
+.brand-wordmark-header {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  color: var(--vio-skin);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  color: var(--vio-dermal-yellow);
+  line-height: 1;
 }
 
-.brand-badge .logo-text span {
+.brand-wordmark-header span {
   color: #FFFFFF;
 }
 
-.brand-badge .badge-tag {
-  background: rgba(0, 84, 166, 0.4);
-  border: 1px solid rgba(0, 84, 166, 0.8);
-  color: #CFE4FA;
+.brand-wordmark-header sup {
+  font-size: 10px;
+  color: #FFFFFF;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.badge-tag {
+  background: rgba(0, 84, 166, 0.25);
+  border: 1px solid rgba(0, 84, 166, 0.6);
+  color: #93C5FD;
   font-family: 'Roboto Mono', monospace;
-  font-size: 10.5px;
+  font-size: 10px;
   letter-spacing: 0.08em;
   padding: 2px 8px;
   border-radius: 3px;
@@ -95,13 +141,13 @@ html, body {
 }
 
 .btn-tool {
-  background: #22272E;
-  border: 1px solid #373E47;
-  color: #ADBAC7;
+  background: #161B22;
+  border: 1px solid #30363D;
+  color: #C9D1D9;
   padding: 6px 12px;
   border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -111,13 +157,13 @@ html, body {
 }
 
 .btn-tool:hover {
-  background: #2D333B;
+  background: #21262D;
   color: #FFFFFF;
-  border-color: #444C56;
+  border-color: #484F58;
 }
 
 .btn-tool.active {
-  background: var(--vio-blue);
+  background: var(--vio-cool-blue);
   color: #FFFFFF;
   border-color: #388BFD;
 }
@@ -128,499 +174,567 @@ html, body {
   border-color: #2EA043;
 }
 
-.btn-tool.btn-accent:hover {
-  background: #2EA043;
-}
-
-.page-indicator {
+.spread-indicator {
   font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  color: #768390;
-  padding: 0 10px;
+  font-size: 11.5px;
+  color: #8B949E;
+  padding: 0 8px;
+  min-width: 140px;
+  text-align: center;
 }
 
-.page-indicator strong {
-  color: #CDD9E5;
+.spread-indicator strong {
+  color: #F0F6FC;
 }
 
 /* ==========================================================================
-   VIEWPORT & FLIPBOOK CONTAINER
+   VIEWPORT & SPREAD VIEWER (100% VISIBLE SIDE-BY-SIDE)
    ========================================================================== */
 
 #app-viewport {
-  height: calc(100vh - 56px);
+  height: calc(100vh - 54px);
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at center, #252B33 0%, #171A1F 100%);
+  background: #14171C;
+  padding: 16px;
 }
 
-.flipbook-container {
-  box-shadow: 0 25px 60px -15px rgba(0,0,0,0.7), 0 0 1px 1px rgba(255,255,255,0.05);
-  border-radius: 2px;
-  position: relative;
-}
-
-/* Scroll View Alternative Mode */
-#scroll-container {
-  display: none;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  padding: 40px 0;
-}
-
-#scroll-container.active {
+/* Container holding the current active spread */
+#spread-stage {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 32px;
+  justify-content: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.scroll-spread {
-  display: flex;
+.spread-pair {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 2px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  background: #000000;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,0.8), 0 0 1px 1px rgba(255,255,255,0.06);
+  border-radius: 2px;
+}
+
+.spread-pair.active {
+  display: flex;
+}
+
+/* Single page centered (e.g. Cover or Back Cover if viewed solo) */
+.spread-pair.single-cover {
+  gap: 0;
 }
 
 /* ==========================================================================
-   BOOK PAGE PRIMITIVES (A4 LANDSCAPE: 1123px x 794px)
+   SLIDE / PAGE PRIMITIVE (EXACT 960px x 540px — 16:9 POTX SPEC)
    ========================================================================== */
 
-.book-page {
-  width: var(--page-width);
-  height: var(--page-height);
-  background: var(--vio-paper);
+.slide-page {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  background: var(--vio-pure-white);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  flex-shrink: 0;
   user-select: text;
 }
 
-/* Page inner grid padding */
-.page-header {
-  padding: 34px 50px 0 50px;
+/* Binding spine shadow */
+.slide-page.page-left {
+  box-shadow: inset -10px 0 20px -8px rgba(0,0,0,0.08);
+}
+
+.slide-page.page-right {
+  box-shadow: inset 10px 0 20px -8px rgba(0,0,0,0.08);
+}
+
+/* Slide Header */
+.slide-header {
+  height: 52px;
+  padding: 16px 43.4px 0 43.4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
 }
 
-.page-body {
+.slide-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-category-pill {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vio-clinical-slate);
+}
+
+/* Slide Master Header Logo (Style Guide Section 2.3 & 8.1: Width 94.4pt, Height 25pt, Aspect 3.7:1) */
+.slide-master-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--vio-dermal-yellow);
+  display: inline-flex;
+  align-items: baseline;
+  user-select: none;
+}
+
+.slide-master-logo.light-bg {
+  color: var(--vio-dermal-yellow);
+}
+
+.slide-master-logo.light-bg span {
+  color: var(--vio-cool-blue);
+}
+
+.slide-master-logo.light-bg sup {
+  color: var(--vio-cool-blue);
+}
+
+.slide-master-logo.dark-bg {
+  color: var(--vio-dermal-yellow);
+}
+
+.slide-master-logo.dark-bg span {
+  color: #FFFFFF;
+}
+
+.slide-master-logo.dark-bg sup {
+  color: #FFFFFF;
+}
+
+.slide-master-logo sup {
+  font-size: 9px;
+  font-weight: 700;
+  margin-left: 2px;
+  vertical-align: super;
+}
+
+/* Slide Body Area */
+.slide-body {
   flex: 1;
-  padding: 20px 50px 0 50px;
+  padding: 10px 43.4px 0 43.4px;
   min-height: 0;
   display: flex;
   flex-direction: column;
 }
 
-.page-footer {
-  padding: 16px 50px 28px 50px;
+/* Slide Title Placeholder: Montserrat Bold 24pt (32px), #0054A6 */
+.slide-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--vio-cool-blue);
+  line-height: 1.15;
+  margin-bottom: 4px;
+  max-width: 720px; /* Style Guide 8.1 enforcement */
+}
+
+.slide-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: var(--vio-clinical-slate);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Slide Footer */
+.slide-footer {
+  height: 38px;
+  padding: 0 43.4px 14px 43.4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  border-top: 1px solid rgba(0, 84, 166, 0.08);
+  border-top: 1px solid #E2E8F0;
   margin-top: auto;
 }
 
-.page-footer .footer-tag {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 10px;
+.slide-footer .footer-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  color: var(--vio-clinical-slate);
   letter-spacing: 0.08em;
-  color: var(--vio-slate);
   text-transform: uppercase;
 }
 
-.page-footer .page-number {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 11px;
+.slide-footer .slide-number {
+  font-family: 'Roboto', sans-serif;
+  font-size: 8.5px;
   font-weight: 700;
-  color: var(--vio-blue);
-  letter-spacing: 0.05em;
-}
-
-/* Left / Right binding shadow simulation */
-.book-page.page-left {
-  box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.06);
-}
-
-.book-page.page-right {
-  box-shadow: inset 15px 0 25px -10px rgba(0,0,0,0.06);
+  color: var(--vio-cool-blue);
 }
 
 /* ==========================================================================
-   PAGE THEMES & SPECIAL LAYOUTS
+   DARK THEME SLIDES (COVER & STATUTORY BACK COVER)
+   SOLID #0054A6 (NO GRADIENTS! Style Guide Section 4 & 5)
    ========================================================================== */
 
-/* DARK COVER PAGES */
-.book-page.theme-dark {
-  background: linear-gradient(135deg, #00376D 0%, #0054A6 60%, #0068CC 100%);
+.slide-page.theme-dark {
+  background: var(--vio-cool-blue); /* Solid Viopatch Cool Blue — NO gradients */
   color: #FFFFFF;
 }
 
-.book-page.theme-dark .page-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+.slide-page.theme-dark .slide-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.book-page.theme-dark .footer-tag {
-  color: var(--vio-skin);
+.slide-page.theme-dark .footer-text {
+  color: var(--vio-dermal-yellow);
 }
 
-.book-page.theme-dark .page-number {
+.slide-page.theme-dark .slide-number {
   color: #FFFFFF;
 }
 
-/* Cover Page (Page 1) */
-.cover-content {
+/* Cover Slide (Slide 1) */
+.cover-layout {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 60px 70px 40px 70px;
+  padding: 44px 43.4px 20px 43.4px;
   position: relative;
-}
-
-.cover-watermark {
-  position: absolute;
-  right: -30px;
-  bottom: -40px;
-  width: 520px;
-  opacity: 0.06;
-  pointer-events: none;
 }
 
 .cover-eyebrow {
   font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  color: var(--vio-skin);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--vio-dermal-yellow);
   text-transform: uppercase;
 }
 
-.cover-main-title {
-  margin-top: 40px;
+.cover-title-group {
+  margin-top: 28px;
 }
 
-.cover-brand-mark {
+.cover-master-wordmark {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800;
-  font-size: 76px;
+  font-size: 68px;
   line-height: 0.95;
   letter-spacing: 0.04em;
-  color: var(--vio-skin);
+  color: var(--vio-dermal-yellow);
   display: inline-block;
 }
 
-.cover-brand-mark span {
+.cover-master-wordmark span {
   color: #FFFFFF;
 }
 
-.cover-brand-mark sup {
-  font-size: 28px;
+.cover-master-wordmark sup {
+  font-size: 24px;
   vertical-align: super;
   font-weight: 700;
   color: #FFFFFF;
   margin-left: 2px;
 }
 
-.cover-descriptor {
+.cover-h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 23px;
+  font-size: 24px;
+  font-weight: 700;
   color: #FFFFFF;
-  margin-top: 16px;
-  letter-spacing: -0.01em;
-}
-
-.cover-thesis {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: #D1E4F7;
-  max-width: 580px;
-  line-height: 1.6;
   margin-top: 14px;
+  line-height: 1.25;
 }
 
-.cover-meta-grid {
+.cover-h2-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--vio-dermal-yellow);
+  margin-top: 8px;
+}
+
+.cover-footer-meta {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 24px;
+  padding-top: 18px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.cover-meta-label {
+.meta-col-label {
   font-family: 'Roboto Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--vio-skin);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: var(--vio-dermal-yellow);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.cover-meta-value {
+.meta-col-val {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
 }
 
-/* Editorial Transmittal Note (Page 2) */
-.transmittal-card {
-  background: #FFFFFF;
-  border-left: 4px solid var(--vio-blue);
-  border-radius: 4px;
-  padding: 30px 36px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+/* ==========================================================================
+   PAGE 2: CLEAN BLANK INSIDE COVER (Style Guide Compliant)
+   ========================================================================== */
+
+.blank-inside-cover {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  background: var(--vio-hospital-grey);
+}
+
+.blank-inside-logo {
+  opacity: 0.15;
+  width: 140px;
+}
+
+.blank-inside-caption {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--vio-clinical-slate);
+  text-transform: uppercase;
   margin-top: 12px;
 }
 
-.transmittal-letter {
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #334155;
-}
+/* ==========================================================================
+   PAGE 3: CATEGORY WHITE SPACE & DEFINITION
+   ========================================================================== */
 
-.transmittal-letter p {
-  margin-bottom: 14px;
-}
-
-.transmittal-letter blockquote {
-  font-family: 'Roboto Slab', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--vio-blue);
-  margin: 18px 0;
-  line-height: 1.5;
-}
-
-/* Category White Space (Page 3) */
-.stats-row {
+.stats-grid-compact {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin: 18px 0;
+  gap: 12px;
+  margin: 8px 0 12px 0;
 }
 
-.stat-box {
-  background: #FFFFFF;
-  border: 1px solid var(--vio-paper-edge);
-  border-radius: 6px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+.stat-box-compact {
+  background: var(--vio-hospital-grey);
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 12px 14px;
 }
 
-.stat-box.highlight {
-  border-color: rgba(0, 84, 166, 0.3);
-  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
-}
-
-.stat-num {
+.stat-num-compact {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 800;
-  color: var(--vio-blue);
+  color: var(--vio-cool-blue);
   line-height: 1;
 }
 
-.stat-label {
+.stat-label-compact {
   font-family: 'Roboto Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--vio-slate);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--vio-clinical-slate);
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-top: 6px;
-}
-
-.stat-sub {
-  font-size: 12.5px;
-  color: #64748B;
   margin-top: 4px;
-  line-height: 1.4;
 }
 
-/* Comparison Cards (Oral Pills vs Balms vs Viopatch) */
-.comparison-grid {
+.stat-desc-compact {
+  font-size: 11.5px;
+  color: var(--vio-statutory-charcoal);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.white-space-callout {
+  background: #FFFFFF;
+  border-left: 3px solid var(--vio-cool-blue);
+  border: 1px solid #CBD5E1;
+  border-left-width: 4px;
+  border-left-color: var(--vio-cool-blue);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.pillars-4-compact {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
 }
 
-.comparison-card {
-  border-radius: 6px;
-  padding: 16px 18px;
-  font-size: 13px;
-  line-height: 1.5;
+.pillar-card-compact {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  padding: 10px;
 }
 
-.comparison-card.negative {
-  background: #FFF5F5;
-  border: 1px solid #FED7D7;
-  color: #742A2A;
-}
-
-.comparison-card.neutral {
-  background: #FFFBF0;
-  border: 1px solid #FEEBC8;
-  color: #7B441D;
-}
-
-.comparison-card.positive {
-  background: #F0FDF4;
-  border: 1.5px solid #86EFAC;
-  color: #14532D;
-}
-
-.comparison-card h4 {
+.pillar-card-compact h4 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13.5px;
+  font-size: 11.5px;
   font-weight: 700;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--vio-cool-blue);
+  margin-bottom: 4px;
 }
 
-/* PRODUCT STORY PAGES (Verso / Left) */
-.product-hero-layout {
+.pillar-card-compact p {
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: #475569;
+}
+
+/* ==========================================================================
+   SKU SPREAD: LEFT PAGE (SKU DESCRIPTION PAGE)
+   ========================================================================== */
+
+.sku-layout-left {
   display: flex;
-  gap: 36px;
+  gap: 24px;
   flex: 1;
   min-height: 0;
-  margin-top: 14px;
+  margin-top: 4px;
 }
 
-.product-image-col {
-  width: 380px;
+.sku-image-column {
+  width: 320px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
-.product-image-frame {
+.sku-image-frame {
   background: #FFFFFF;
   border: 1px solid #CBD5E1;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  height: 290px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 380px;
 }
 
-.product-image-frame img {
+.sku-image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.product-specs-banner {
-  background: var(--vio-blue);
+.sku-spec-badge {
+  background: var(--vio-cool-blue);
   color: #FFFFFF;
-  border-radius: 6px;
-  padding: 12px 18px;
+  border-radius: 4px;
+  padding: 8px 12px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-.product-specs-banner .banner-sub {
+.sku-spec-badge .badge-sub {
   font-family: 'Roboto Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--vio-skin);
+  font-size: 9px;
+  color: var(--vio-dermal-yellow);
   text-transform: uppercase;
 }
 
-.product-specs-banner .banner-main {
+.sku-spec-badge .badge-main {
   font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 16px;
-  margin-top: 2px;
 }
 
-.product-info-col {
+.sku-details-column {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.product-story-text {
-  font-size: 14.5px;
-  line-height: 1.6;
+.sku-narrative {
+  font-size: 13px;
+  line-height: 1.5;
   color: #334155;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
-.feature-list {
+.sku-bullets {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
-.feature-item {
+.sku-bullet-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 13.5px;
-  line-height: 1.45;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.4;
   color: #1E293B;
 }
 
-.feature-item svg {
+.sku-bullet-item svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--vio-green);
+  color: var(--vio-herbal-green);
 }
 
-.ingredient-pills {
+.sku-actives-box {
   margin-top: auto;
   border-top: 1px solid #E2E8F0;
-  padding-top: 14px;
+  padding-top: 10px;
 }
 
-.ingredient-title {
+.sku-actives-label {
   font-family: 'Roboto Mono', monospace;
-  font-size: 10.5px;
+  font-size: 9.5px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--vio-slate);
-  margin-bottom: 8px;
+  color: var(--vio-clinical-slate);
+  margin-bottom: 6px;
 }
 
-.pill-container {
+.actives-pill-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
-.pill {
+.active-pill {
   font-family: 'Roboto Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 9.5px;
+  font-weight: 600;
   color: #FFFFFF;
-  background: var(--vio-green);
-  padding: 4px 10px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
+  background: var(--vio-herbal-green);
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
 /* ==========================================================================
-   PHYSICAL SAMPLE MOUNTING PAGES (Recto / Right)
+   SKU SPREAD: RIGHT PAGE (SAMPLE ATTACHMENT PAGE)
    ========================================================================== */
 
 .sample-mount-canvas {
@@ -629,189 +743,205 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: var(--vio-hospital-grey);
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
   position: relative;
-  background: radial-gradient(circle at center, #FFFFFF 0%, #F5F6F9 100%);
-  border-radius: 6px;
-  margin: 10px 0 16px 0;
-  border: 1px solid #E2E8F0;
+  margin: 6px 0 8px 0;
 }
 
-.sample-die-box {
-  border: 2px dashed var(--vio-blue);
-  background: rgba(0, 84, 166, 0.02);
-  border-radius: 4px;
+.sample-die-frame {
+  border: 2px dashed var(--vio-cool-blue);
+  background: rgba(0, 84, 166, 0.03);
+  border-radius: 3px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.sample-die-box:hover {
-  background: rgba(0, 84, 166, 0.04);
-  border-color: #0284C7;
+  text-align: center;
+  transition: all 0.15s ease;
 }
 
 /* Precision Corner Marks */
-.corner-bracket {
+.bracket-corner {
   position: absolute;
-  width: 22px;
-  height: 22px;
-  border: 2.5px solid var(--vio-blue);
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--vio-cool-blue);
   pointer-events: none;
 }
 
-.corner-bracket.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
-.corner-bracket.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
-.corner-bracket.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
-.corner-bracket.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+.bracket-corner.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.bracket-corner.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.bracket-corner.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.bracket-corner.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
 
 /* Optical Crosshair */
-.optical-crosshair {
+.die-crosshair {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.25;
 }
 
-.optical-crosshair::before {
+.die-crosshair::before {
   content: '';
   position: absolute;
-  width: 40px;
+  width: 30px;
   height: 1px;
-  background: var(--vio-blue);
+  background: var(--vio-cool-blue);
 }
 
-.optical-crosshair::after {
+.die-crosshair::after {
   content: '';
   position: absolute;
-  height: 40px;
+  height: 30px;
   width: 1px;
-  background: var(--vio-blue);
+  background: var(--vio-cool-blue);
 }
 
 /* Glue Dot Targets */
-.glue-dot-indicator {
+.glue-target {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 1.5px dashed var(--vio-amber);
-  background: rgba(194, 65, 12, 0.1);
+  border: 1.5px dashed var(--vio-sunset-amber);
+  background: rgba(194, 65, 12, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Roboto Mono', monospace;
-  font-size: 8px;
+  font-size: 7.5px;
   font-weight: 700;
-  color: var(--vio-amber);
+  color: var(--vio-sunset-amber);
   pointer-events: none;
 }
 
-.glue-dot-indicator.dot-1 { top: 30px; }
-.glue-dot-indicator.dot-2 { bottom: 30px; }
+.glue-target.top { top: 20px; }
+.glue-target.bottom { bottom: 20px; }
 
-.die-box-center-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-  padding: 20px;
+.die-content-label {
+  padding: 16px;
   z-index: 2;
 }
 
-.die-box-center-label svg {
-  color: var(--vio-blue);
-}
-
-.die-box-main-text {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--vio-blue);
-  text-transform: uppercase;
-}
-
-.die-box-dim-badge {
-  background: var(--vio-blue);
-  color: #FFFFFF;
+.die-title {
   font-family: 'Roboto Mono', monospace;
   font-size: 11px;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 12px;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--vio-cool-blue);
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
-.die-box-hint {
-  font-family: 'Roboto Slab', serif;
-  font-style: italic;
-  font-size: 13px;
-  color: var(--vio-slate);
-  margin-top: 4px;
+.die-dim-pill {
+  background: var(--vio-cool-blue);
+  color: #FFFFFF;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.die-instructions {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  color: var(--vio-clinical-slate);
+  line-height: 1.35;
+  max-width: 280px;
 }
 
 /* ==========================================================================
-   REVIEW & COMMENTING SYSTEM
+   BLEED LINES & PRINT MARKS OVERLAY (TOGGLEABLE)
    ========================================================================== */
 
-/* Pin Markers on Book Pages */
-.comment-pin {
+.bleed-overlay {
+  display: none;
   position: absolute;
-  width: 28px;
-  height: 28px;
+  inset: -11px; /* 3mm bleed equivalent */
+  border: 1px dashed rgba(242, 107, 67, 0.7);
+  pointer-events: none;
+  z-index: 80;
+}
+
+.show-bleeds .bleed-overlay {
+  display: block;
+}
+
+.safe-margin-overlay {
+  display: none;
+  position: absolute;
+  inset: 20px;
+  border: 1px dotted rgba(0, 84, 166, 0.35);
+  pointer-events: none;
+  z-index: 80;
+}
+
+.show-bleeds .safe-margin-overlay {
+  display: block;
+}
+
+/* ==========================================================================
+   REVIEW & COMMENT PIN SYSTEM
+   ========================================================================== */
+
+.slide-comment-pin {
+  position: absolute;
+  width: 26px;
+  height: 26px;
   border-radius: 50% 50% 50% 0;
   transform: translate(-50%, -100%) rotate(-45deg);
   background: #E11D48;
   border: 2px solid #FFFFFF;
-  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+  box-shadow: 0 3px 10px rgba(225, 29, 72, 0.45);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 50;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 60;
+  transition: transform 0.15s ease;
 }
 
-.comment-pin span {
+.slide-comment-pin span {
   transform: rotate(45deg);
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 11px;
+  font-size: 10.5px;
 }
 
-.comment-pin:hover {
+.slide-comment-pin:hover {
   transform: translate(-50%, -105%) rotate(-45deg) scale(1.15);
-  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.6);
 }
 
-.comment-pin.resolved {
+.slide-comment-pin.resolved {
   background: #10B981;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
-/* Active Pin-Drop Crosshair Cursor */
-.pin-drop-active {
+/* Cursor during drop pin */
+.pin-cursor-active .slide-page {
   cursor: crosshair !important;
 }
 
-/* Slide-Out Comments Drawer */
+/* Slide-out Comments Drawer */
 #comments-drawer {
   position: fixed;
-  top: 56px;
+  top: 54px;
   right: -420px;
   width: 420px;
-  height: calc(100vh - 56px);
-  background: #1C2128;
-  border-left: 1px solid #373E47;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  height: calc(100vh - 54px);
+  background: #161B22;
+  border-left: 1px solid #30363D;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.6);
   z-index: 150;
   display: flex;
   flex-direction: column;
@@ -823,8 +953,8 @@ html, body {
 }
 
 .drawer-header {
-  padding: 18px 20px;
-  border-bottom: 1px solid #2D333B;
+  padding: 16px 18px;
+  border-bottom: 1px solid #21262D;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -833,54 +963,41 @@ html, body {
 .drawer-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  color: #CDD9E5;
+  font-size: 14px;
+  color: #F0F6FC;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.drawer-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .drawer-body {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .comment-card {
-  background: #22272E;
-  border: 1px solid #373E47;
-  border-radius: 6px;
-  padding: 14px;
-  position: relative;
-  transition: border-color 0.15s ease;
-}
-
-.comment-card:hover {
-  border-color: #539BF5;
+  background: #21262D;
+  border: 1px solid #30363D;
+  border-radius: 4px;
+  padding: 12px;
 }
 
 .comment-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .comment-page-badge {
-  background: rgba(0, 84, 166, 0.2);
-  color: #58A6FF;
-  border: 1px solid rgba(0, 84, 166, 0.5);
+  background: rgba(0, 84, 166, 0.3);
+  color: #79C0FF;
   font-family: 'Roboto Mono', monospace;
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 600;
   padding: 2px 6px;
   border-radius: 3px;
@@ -888,50 +1005,50 @@ html, body {
 
 .comment-category-pill {
   font-family: 'Roboto Mono', monospace;
-  font-size: 10px;
+  font-size: 9.5px;
   padding: 2px 6px;
   border-radius: 3px;
   text-transform: uppercase;
 }
 
 .cat-copy { background: #388BFD22; color: #58A6FF; }
-.cat-visual { background: #D2992222; color: #E3B341; }
 .cat-sample { background: #F8514922; color: #F85149; }
+.cat-visual { background: #D2992222; color: #E3B341; }
 .cat-thesis { background: #A371F722; color: #BC8CFF; }
 .cat-deal { background: #2EA04322; color: #3FB950; }
 
 .comment-text {
-  font-size: 13.5px;
-  color: #ADBAC7;
-  line-height: 1.5;
+  font-size: 13px;
+  color: #C9D1D9;
+  line-height: 1.45;
   white-space: pre-wrap;
 }
 
-.comment-meta {
+.comment-footer-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
-  font-size: 11px;
-  color: #768390;
+  margin-top: 8px;
+  font-size: 10.5px;
+  color: #8B949E;
   font-family: 'Roboto Mono', monospace;
 }
 
 .drawer-footer {
-  padding: 16px;
-  border-top: 1px solid #2D333B;
+  padding: 14px;
+  border-top: 1px solid #21262D;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* Pin Creation Modal */
+/* Modal */
 #pin-modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
   z-index: 200;
   align-items: center;
   justify-content: center;
@@ -941,116 +1058,108 @@ html, body {
   display: flex;
 }
 
-.modal-card {
-  width: 460px;
-  background: #1C2128;
-  border: 1px solid #373E47;
-  border-radius: 8px;
+.modal-box {
+  width: 440px;
+  background: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 6px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.8);
   overflow: hidden;
 }
 
 .modal-header {
-  padding: 16px 20px;
-  border-bottom: 1px solid #2D333B;
+  padding: 14px 18px;
+  border-bottom: 1px solid #21262D;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 15px;
-  color: #CDD9E5;
+  font-size: 14px;
+  color: #F0F6FC;
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .form-group label {
   display: block;
   font-family: 'Roboto Mono', monospace;
-  font-size: 11px;
+  font-size: 10.5px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #768390;
-  margin-bottom: 6px;
+  color: #8B949E;
+  margin-bottom: 4px;
 }
 
-.form-input, .form-textarea, .form-select {
+.form-control {
   width: 100%;
-  background: #22272E;
-  border: 1px solid #373E47;
-  color: #CDD9E5;
-  padding: 10px 12px;
+  background: #0D1117;
+  border: 1px solid #30363D;
+  color: #C9D1D9;
+  padding: 8px 10px;
   border-radius: 4px;
   font-family: inherit;
-  font-size: 13.5px;
+  font-size: 13px;
 }
 
-.form-input:focus, .form-textarea:focus, .form-select:focus {
+.form-control:focus {
   outline: none;
   border-color: #58A6FF;
 }
 
-.modal-footer {
-  padding: 14px 20px;
-  border-top: 1px solid #2D333B;
+.modal-actions {
+  padding: 12px 18px;
+  border-top: 1px solid #21262D;
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* ==========================================================================
-   PRINT / PDF EXPORT RULES (A4 LANDSCAPE: 297mm x 210mm)
+   PRINT / PDF EXPORT RULES
    ========================================================================== */
 
 @page {
-  size: 297mm 210mm;
+  size: 16in 9in; /* 16:9 Widescreen standard */
   margin: 0;
 }
 
 @media print {
   html, body {
-    width: 297mm !important;
+    width: 100% !important;
     height: auto !important;
     background: #FFFFFF !important;
     color: #000000 !important;
     overflow: visible !important;
   }
 
-  #app-header, #comments-drawer, #pin-modal, .comment-pin {
+  #app-header, #mobile-banner, #comments-drawer, #pin-modal, .slide-comment-pin {
     display: none !important;
   }
 
   #app-viewport {
     height: auto !important;
-    width: 297mm !important;
-    overflow: visible !important;
+    width: 100% !important;
+    padding: 0 !important;
     background: transparent !important;
     display: block !important;
   }
 
-  .flipbook-container {
-    display: none !important;
-  }
-
-  #scroll-container {
+  #spread-stage {
     display: block !important;
-    padding: 0 !important;
+    transform: none !important;
   }
 
-  .scroll-spread {
+  .spread-pair {
+    display: flex !important;
     box-shadow: none !important;
-    display: block !important;
+    margin: 0 !important;
     page-break-after: always !important;
     break-after: page !important;
   }
 
-  .book-page {
-    width: 297mm !important;
-    height: 210mm !important;
-    page-break-after: always !important;
-    break-after: page !important;
+  .slide-page {
     box-shadow: none !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

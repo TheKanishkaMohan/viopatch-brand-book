@@ -9,3 +9,4 @@ Thumbs.db
 # Scripts
 convert_potx.py
 generate_html.py
+generate_deck.py
