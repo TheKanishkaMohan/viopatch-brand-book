@@ -1,0 +1,11 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# Scripts
+convert_potx.py
+generate_html.py
