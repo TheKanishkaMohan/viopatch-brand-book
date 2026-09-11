@@ -6,7 +6,11 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Scripts
+# Archive & Scratch
+archive/
+scratch/
+
+# Build & Helper Scripts
 convert_potx.py
 generate_html.py
 generate_deck.py
