@@ -30,10 +30,10 @@
 - **Background:** Solid Viopatch Cool Blue (`#0054A6`). Zero gradients, zero decorative radar/target icons.
 - **Wordmark:** Dual-color master wordmark (`VIO` in `#FDCD8B` Dermal Yellow, `PATCH` in Pure White `#FFFFFF`, cap-height registered trademark `®`).
 - **Aspect Ratio:** Locked 3.7:1 geometry with strict 1X clear space.
+- **Eyebrow:** CONFIDENTIAL
 - **Title:** India's First Herbal Pain-Relief Patch Brand
-- **Subtitle:** *A strategic conversation on bringing Viopatch into the Giga Capital portfolio*
-- **Prepared For:** Arti Gill · Giga Capital
-- **Authority Tag:** Unexo Life Sciences Pvt. Ltd. (Est. 1972)
+- **Recipient:** Prepared for Giga Capital
+- **Footer:** Confidential | © Unexo Life Sciences Private Limited
 
 ---
 
