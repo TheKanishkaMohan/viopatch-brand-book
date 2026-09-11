@@ -1,9 +1,9 @@
 # Viopatch Project File & Content Index
 
 > **Directory Root**: `C:\etc\viopatch`  
-> **Last Refreshed**: September 11, 2026 (23:26 IST)  
-> **Total Tracked Files**: 941 files across 5 primary directories  
-> **Total Directory Size**: 1931.73 MB (1.89 GB)  
+> **Last Refreshed**: September 11, 2026 (23:32 IST)  
+> **Total Tracked Files**: 942 files across 5 primary directories  
+> **Total Directory Size**: 1930.95 MB (1.89 GB)  
 
 ---
 
@@ -24,13 +24,13 @@ The `C:\etc\viopatch` directory is the central asset repository for **Viopatch**
 
 | Directory / Location | Subdirectories | Total Files | Size (MB) | Role & Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **`(Root Directory)`** | 0 | 8 | 4.07 MB | Canonical master documents: PPTX/DOTX templates, PDF/MD brand style guides, audit report |
-| **`brand-book/`** | — | 24 | 4.47 MB | Interactive 2-page spread web application, print monograph generator, GitHub Pages repo |
+| **`(Root Directory)`** | 0 | 8 | 3.28 MB | Canonical master documents: PPTX/DOTX templates, PDF/MD brand style guides, audit report |
+| **`brand-book/`** | — | 18 | 2.98 MB | Interactive 2-page spread web application, print monograph generator, GitHub Pages repo |
 | **`brand-assets/`** | — | 423 | 1892.24 MB | High-resolution packaging photography, AI anatomy concepts, listing graphics, model shoots, videos |
-| **`archive/`** | — | 9 | 21.99 MB | Retired PowerPoint backups, previous pitch deck (July 2026), and early concept prototypes |
+| **`archive/`** | — | 16 | 23.49 MB | Retired PowerPoint backups, previous pitch deck (July 2026), and early concept prototypes |
 | **`scratch/`** | — | 476 | 8.95 MB | Temporary unpacked XML fragments and build intermediates from python-docx/pptx (safe to delete) |
 | **`.agents/`** | — | 1 | 0.01 MB | Antigravity custom skill definitions (`print-ready-book`) |
-| **TOTAL** | **—** | **941** | **1931.73 MB** | Full project footprint |
+| **TOTAL** | **—** | **942** | **1930.95 MB** | Full project footprint |
 
 ---
 
@@ -42,10 +42,10 @@ These are the authoritative production deliverables for corporate identity and p
 | :--- | :--- | :--- | :--- |
 | [`.gitignore`](file:///C:/etc/viopatch/.gitignore) | 0.2 KB | GITIGNORE | Root Git ignore rules protecting archive, scratch, and large raw video media |
 | [`BRAND_STYLE_GUIDE.md`](file:///C:/etc/viopatch/BRAND_STYLE_GUIDE.md) | 33.5 KB | MD | Authoritative 2026 Brand Design System specification (Version 2.0, 8 approved colors, strict solid #0054A6) |
-| [`FILE_INDEX.md`](file:///C:/etc/viopatch/FILE_INDEX.md) | 77.6 KB | MD | This master project index documenting all assets and directory architecture |
-| [`VIOPATCH-DOCUMENT-TEMPLATE.dotx`](file:///C:/etc/viopatch/VIOPATCH-DOCUMENT-TEMPLATE.dotx) | 414.8 KB | DOTX | Official corporate Word template with custom headers, typography hierarchy, and branded callouts |
-| [`VIOPATCH-PRESENTATION-TEMPLATE.potx`](file:///C:/etc/viopatch/VIOPATCH-PRESENTATION-TEMPLATE.potx) | 1322.3 KB | POTX | Official 16:9 widescreen Slide Master presentation template (960pt x 540pt) |
-| [`VIOPATCH_BRAND_AUDIT_REPORT.docx`](file:///C:/etc/viopatch/VIOPATCH_BRAND_AUDIT_REPORT.docx) | 302.2 KB | DOCX | Comprehensive Brand Audit & Migration Report detailing pre/post design compliance across all collateral |
+| [`FILE_INDEX.md`](file:///C:/etc/viopatch/FILE_INDEX.md) | 9.4 KB | MD | This master project index documenting all assets and directory architecture |
+| [`VIOPATCH-DOCUMENT-TEMPLATE.dotx`](file:///C:/etc/viopatch/VIOPATCH-DOCUMENT-TEMPLATE.dotx) | 34.8 KB | DOTX | Official corporate Word template with custom headers, typography hierarchy, and branded callouts |
+| [`VIOPATCH-PRESENTATION-TEMPLATE.potx`](file:///C:/etc/viopatch/VIOPATCH-PRESENTATION-TEMPLATE.potx) | 964.2 KB | POTX | Official 16:9 widescreen Slide Master presentation template (960pt x 540pt) |
+| [`VIOPATCH_BRAND_AUDIT_REPORT.docx`](file:///C:/etc/viopatch/VIOPATCH_BRAND_AUDIT_REPORT.docx) | 301.9 KB | DOCX | Comprehensive Brand Audit & Migration Report detailing pre/post design compliance across all collateral |
 | [`VIOPATCH_BRAND_STYLE_GUIDE.pdf`](file:///C:/etc/viopatch/VIOPATCH_BRAND_STYLE_GUIDE.pdf) | 692.1 KB | PDF | High-resolution compiled PDF export of the Brand Style Guide |
 | [`VIOPATCH_BRAND_STYLE_GUIDE.pptx`](file:///C:/etc/viopatch/VIOPATCH_BRAND_STYLE_GUIDE.pptx) | 1321.3 KB | PPTX | Master 16:9 Widescreen PowerPoint Brand Style Guide presentation with validated color tokens |
 
@@ -64,8 +64,8 @@ The `brand-book/` folder is a standalone, self-contained Git repository publishe
 | :--- | :--- | :--- |
 | `brand-book\.gitignore` | 0.2 KB | Production web/print deliverable |
 | `brand-book\BRAND_STYLE_GUIDE.md` | 33.5 KB | Production web/print deliverable |
-| `brand-book\README.md` | 8.8 KB | Production web/print deliverable |
-| `brand-book\VIOPATCH-BRAND-BOOK-TEMPLATE.potx` | 1322.3 KB | Production web/print deliverable |
+| `brand-book\FILE_INDEX.md` | 9.4 KB | Production web/print deliverable |
+| `brand-book\README.md` | 8.9 KB | Production web/print deliverable |
 | `brand-book\app.js` | 19.1 KB | Production web/print deliverable |
 | `brand-book\assets\brand-logo.png` | 454.3 KB | Production web/print deliverable |
 | `brand-book\assets\icon-master.png` | 117.9 KB | Production web/print deliverable |
@@ -77,14 +77,8 @@ The `brand-book/` folder is a standalone, self-contained Git repository publishe
 | `brand-book\assets\product-large.jpg` | 242.8 KB | Production web/print deliverable |
 | `brand-book\assets\product-period.jpg` | 231.5 KB | Production web/print deliverable |
 | `brand-book\assets\product-regular.jpg` | 320.0 KB | Production web/print deliverable |
-| `brand-book\claude-concept-mid.html` | 82.1 KB | Production web/print deliverable |
-| `brand-book\convert_potx.py` | 1.2 KB | Production web/print deliverable |
 | `brand-book\generate_deck.py` | 34.6 KB | Production web/print deliverable |
-| `brand-book\generate_html.py` | 73.5 KB | Production web/print deliverable |
 | `brand-book\index.html` | 58.7 KB | Production web/print deliverable |
-| `brand-book\outline-refined.md` | 4.8 KB | Production web/print deliverable |
-| `brand-book\outline.md` | 3.3 KB | Production web/print deliverable |
-| `brand-book\st-page-flip.min.js` | 43.0 KB | Production web/print deliverable |
 | `brand-book\style.css` | 28.7 KB | Production web/print deliverable |
 
 ---
@@ -108,6 +102,13 @@ Created during folder reorganization to isolate historical and superseding docum
 - `archive\VIOPATCH_BRAND_STYLE_GUIDE.backup_task1.pptx` (968.1 KB)
 - `archive\VIOPATCH_BRAND_STYLE_GUIDE_backup_20260911_1557.pptx` (978.5 KB)
 - `archive\VIOPATCH_BRAND_STYLE_GUIDE_backup_before_step1.pptx` (977.1 KB)
+- `archive\brand-book-retired\VIOPATCH-BRAND-BOOK-TEMPLATE.potx` (1322.3 KB)
+- `archive\brand-book-retired\claude-concept-mid.html` (82.1 KB)
+- `archive\brand-book-retired\convert_potx.py` (1.2 KB)
+- `archive\brand-book-retired\generate_html.py` (73.5 KB)
+- `archive\brand-book-retired\outline-refined.md` (4.8 KB)
+- `archive\brand-book-retired\outline.md` (3.3 KB)
+- `archive\brand-book-retired\st-page-flip.min.js` (43.0 KB)
 - `archive\claude_output\Unexo Life Sciences  Template.potx` (361.4 KB)
 - `archive\claude_output\Unexo Template - Layout Preview.png` (277.8 KB)
 - `archive\claude_output\viopatch-knee-spread-palette-a.html` (82.1 KB)
@@ -135,10 +136,10 @@ Created during folder reorganization to isolate historical and superseding docum
 | `.pdf` | 13 | 26.74 MB | Document / Template |
 | `.pptx` | 7 | 23.42 MB | Document / Template |
 | `.tif` | 1 | 13.35 MB | Code / Data |
-| `.potx` | 3 | 2.94 MB | Document / Template |
+| `.potx` | 3 | 2.59 MB | Document / Template |
 | `.xml` | 231 | 1.84 MB | Code / Data |
 | `.jpeg` | 5 | 1.43 MB | Media |
-| `.dotx` | 2 | 0.81 MB | Document / Template |
 | `.ttf` | 5 | 0.73 MB | Code / Data |
 | `.docx` | 2 | 0.59 MB | Document / Template |
+| `.dotx` | 2 | 0.44 MB | Document / Template |
 | `.bak` | 2 | 0.33 MB | Code / Data |

@@ -111,7 +111,7 @@ Before merging any changes into `main`, complete the following verification step
 AI agents modifying this repository must follow these rules without exception:
 
 1. **Slide Master Geometry is Fixed**:
-   - The dimensions are locked 1:1 to `VIOPATCH-PRESENTATION-TEMPLATE.potx` ($960\text{ pt} \times 540\text{ pt}$ / $1920\text{ px} \times 540\text{ px}$ spread, 16:9 widescreen standard).
+   - The dimensions are locked 1:1 to `VIOPATCH-PRESENTATION-TEMPLATE.potx` (canonical master in parent directory `C:\etc\viopatch`, $960\text{ pt} \times 540\text{ pt}$ / $1920\text{ px} \times 540\text{ px}$ spread, 16:9 widescreen standard).
    - Do NOT revert to 3D flipbook canvas engines, do NOT alter the 2-page CSS spread structure, and do NOT alter the viewport auto-scaler script in `app.js`.
 2. **Single Source of Truth**:
    - Always edit slide markup in `generate_deck.py` and compile into `index.html` by running `python generate_deck.py`.
@@ -145,4 +145,4 @@ AI agents modifying this repository must follow these rules without exception:
   - Summarize the business rationale and request explicit sign-off from `@TheKanishkaMohan` prior to merging into `main`.
 - **For AI Agents**:
   - **STOP & FLAG**: When asked to make any change matching the criteria above, the agent must explicitly summarize the proposed change, explain the implications, and wait for the user's explicit confirmation before committing to `main`.
-  - Update `outline-refined.md` and `walkthrough.md` whenever an approved significant change is made.
+  - Document the rationale in the commit message and refresh `FILE_INDEX.md` whenever an approved significant change is made.
