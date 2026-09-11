@@ -14,7 +14,6 @@
   let isPinDropActive = false;
   let currentPendingPin = null;
   let comments = [];
-  const STORAGE_KEY = 'viopatch_brand_book_comments_v2';
 
   // --- DOM ELEMENTS ---
   const spreadStage = document.getElementById('spread-stage');
@@ -38,6 +37,7 @@
   const btnExportMd = document.getElementById('btn-export-md');
   const btnExportJson = document.getElementById('btn-export-json');
   const btnImportJson = document.getElementById('btn-import-json');
+  const btnClearAll = document.getElementById('btn-clear-all');
   const fileInput = document.getElementById('file-import-input');
   const btnDismissBanner = document.getElementById('btn-dismiss-banner');
   const mobileBanner = document.getElementById('mobile-banner');
@@ -50,6 +50,7 @@
     updateSpreadView();
     autoScaleSpread();
     renderComments();
+    renderPins();
     window.addEventListener('resize', autoScaleSpread);
   });
 
@@ -168,6 +169,26 @@
     btnCancelPin?.addEventListener('click', closePinModal);
     formPin?.addEventListener('submit', handleSavePin);
 
+    // Event Delegation on Comments List (handles both delete and jump)
+    commentsList?.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      const action = btn.dataset.action;
+      const commentId = btn.dataset.id;
+      const pageNum = parseInt(btn.dataset.page, 10);
+
+      if (action === 'delete') {
+        e.stopPropagation();
+        deleteComment(commentId);
+      } else if (action === 'jump') {
+        e.stopPropagation();
+        jumpToPage(pageNum);
+      }
+    });
+
+    // Clear All Comments
+    btnClearAll?.addEventListener('click', clearAllComments);
+
     // Export & Chat
     btnCopyChat?.addEventListener('click', copyCommentsForChat);
     btnExportMd?.addEventListener('click', exportCommentsMarkdown);
@@ -237,7 +258,7 @@
 
   function openPinModal(pageNum, x, y) {
     document.getElementById('modal-page-info').textContent = `Page ${pageNum} (Location: X ${x}%, Y ${y}%)`;
-    document.getElementById('input-author').value = localStorage.getItem('viopatch_reviewer_name') || 'Arti Gill / Reviewer';
+    document.getElementById('input-author').value = localStorage.getItem('viopatch_reviewer_name') || 'Kanishka';
     document.getElementById('input-comment').value = '';
     pinModal.classList.add('active');
     setTimeout(() => document.getElementById('input-comment').focus(), 50);
@@ -252,7 +273,7 @@
     e.preventDefault();
     if (!currentPendingPin) return;
 
-    const author = document.getElementById('input-author').value.trim() || 'Reviewer';
+    const author = document.getElementById('input-author').value.trim() || 'Kanishka';
     const category = document.getElementById('select-category').value;
     const text = document.getElementById('input-comment').value.trim();
 
@@ -261,7 +282,7 @@
     localStorage.setItem('viopatch_reviewer_name', author);
 
     const newComment = {
-      id: 'cmt_' + Date.now(),
+      id: 'cmt_' + Date.now() + '_' + Math.floor(Math.random() * 1000),
       pinNumber: comments.length + 1,
       page: currentPendingPin.page,
       x: currentPendingPin.x,
@@ -307,6 +328,13 @@
           }
         });
 
+        // Optional right-click to quick delete pin
+        pin.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          deleteComment(c.id);
+        });
+
         page.appendChild(pin);
       });
     });
@@ -314,7 +342,9 @@
 
   function renderComments() {
     if (!commentsList) return;
-    commentCountBadge.textContent = comments.length;
+    if (commentCountBadge) {
+      commentCountBadge.textContent = comments.length;
+    }
 
     if (comments.length === 0) {
       commentsList.innerHTML = `
@@ -340,9 +370,9 @@
         <div class="comment-text">${escapeHtml(c.text)}</div>
         <div class="comment-footer-meta">
           <span>${escapeHtml(c.author)}</span>
-          <div style="display:flex; gap:6px;">
-            <button onclick="window.VioSpread.jumpToPage(${c.page})" style="background:none; border:none; color:#58A6FF; font-size:10.5px; cursor:pointer;">View Page</button>
-            <button onclick="window.VioSpread.deleteComment('${c.id}')" style="background:none; border:none; color:#F85149; font-size:10.5px; cursor:pointer;">Delete</button>
+          <div style="display:flex; gap:8px;">
+            <button data-action="jump" data-page="${c.page}" style="background:none; border:none; color:#58A6FF; font-size:11px; font-weight:600; cursor:pointer; padding:2px 4px;">View Page</button>
+            <button data-action="delete" data-id="${c.id}" style="background:none; border:none; color:#F85149; font-size:11px; font-weight:600; cursor:pointer; padding:2px 4px;">Delete</button>
           </div>
         </div>
       </div>
@@ -350,7 +380,6 @@
   }
 
   function jumpToPage(pageNum) {
-    // Find which spread contains this page
     spreadPairs.forEach((pair, idx) => {
       const left = parseInt(pair.dataset.leftPage || '0', 10);
       const right = parseInt(pair.dataset.rightPage || '0', 10);
@@ -361,8 +390,21 @@
   }
 
   function deleteComment(id) {
-    if (confirm('Delete this comment pin?')) {
-      comments = comments.filter(c => c.id !== id);
+    if (!id) return;
+    comments = comments.filter(c => String(c.id) !== String(id));
+    // Re-index remaining pin numbers sequentially
+    comments.forEach((c, i) => {
+      c.pinNumber = i + 1;
+    });
+    saveComments();
+    renderComments();
+    renderPins();
+  }
+
+  function clearAllComments() {
+    if (comments.length === 0) return;
+    if (confirm('Are you sure you want to clear all comments?')) {
+      comments = [];
       saveComments();
       renderComments();
       renderPins();
@@ -370,13 +412,33 @@
   }
 
   function saveComments() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+    const jsonStr = JSON.stringify(comments);
+    localStorage.setItem('viopatch_brand_book_comments_v2', jsonStr);
+    localStorage.setItem('viopatch_brand_book_comments_v1', jsonStr);
   }
 
   function loadComments() {
     try {
-      const data = localStorage.getItem(STORAGE_KEY);
+      let data = localStorage.getItem('viopatch_brand_book_comments_v2');
+      if (!data) {
+        data = localStorage.getItem('viopatch_brand_book_comments_v1');
+      }
       comments = data ? JSON.parse(data) : [];
+      if (!Array.isArray(comments)) comments = [];
+      let needsSave = false;
+      comments.forEach((c, i) => {
+        if (!c.id) {
+          c.id = 'cmt_' + Date.now() + '_' + i;
+          needsSave = true;
+        }
+        if (!c.pinNumber) {
+          c.pinNumber = i + 1;
+          needsSave = true;
+        }
+      });
+      if (needsSave) {
+        saveComments();
+      }
     } catch (e) {
       comments = [];
     }
@@ -463,10 +525,12 @@
       .replace(/'/g, '&#039;');
   }
 
-  // Global helper
+  // Global helpers (both namespace formats for backwards compatibility)
   window.VioSpread = {
     jumpToPage,
-    deleteComment
+    deleteComment,
+    clearAllComments
   };
+  window.VioBook = window.VioSpread;
 
 })();
